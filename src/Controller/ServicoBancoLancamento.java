@@ -116,13 +116,6 @@ public class ServicoBancoLancamento {
                 lista = rs.getInt(1);
             }
 
-            System.out.println(" select sum(hora_trabalhada) "
-                    + "from controle_horas.lancamento,"
-                    + " controle_horas.funcionario"
-                    + " where funcionario_cod_funcionaio = cod_funcionaio and"
-                    + " cod_funcionaio = " + codFun + " and"
-                    + " mes between " + periodoIni + " and " + periodoFim + " "
-                    + "and ano = " + ano + ";");
             return lista;
         }
     }
@@ -137,6 +130,25 @@ public class ServicoBancoLancamento {
 
             return lista;
         }
+    }
+
+    public ArrayList<String[]> getTabelaByQuery() throws SQLException {
+        ArrayList<String[]> dados = new ArrayList<>();
+        Utils utils = new Utils();
+        try (Statement st = conexao.getConexao().createStatement();
+                ResultSet rs = st.executeQuery("SELECT * FROM controle_horas.gettabelabyquery;")) {
+
+            while (rs.next()) {
+                dados.add(new String[]{
+                    rs.getString(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    utils.formatTot(Float.parseFloat(rs.getString(5))),
+                    rs.getString(6)});
+            }
+        }
+        return dados;
     }
 
 }
