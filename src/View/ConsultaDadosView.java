@@ -8,6 +8,7 @@ import Models.Lancamento;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ItemEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
@@ -135,17 +136,19 @@ public class ConsultaDadosView extends javax.swing.JFrame {
         lblMes1.setText("Final do Periodo");
 
         ComboInicio.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
-        ComboInicio.addItemListener(evt -> ComboInicioItemStateChanged(evt));
+        ComboInicio.addItemListener(this::ComboInicioItemStateChanged);
 
         ComboFim.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
-        ComboFim.addItemListener(evt -> {
-            ComboFimItemStateChanged(evt);
-        });
+        ComboFim.addItemListener(this::ComboFimItemStateChanged);
 
-        ComboAno.setFont(new java.awt.Font("Dialog", Font.PLAIN, 15)); // NOI18N
-        ComboAno.addItemListener(evt -> {
-            ComboAnoItemStateChanged(evt);
-        });
+        ComboAno.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+        ComboAno.addItemListener(this::ComboAnoItemStateChanged);
+
+        lblTotal.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+        lblTotal.setText("Total a Receber:");
+
+        txtTotal.setEditable(false);
+        txtTotal.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -359,12 +362,6 @@ public class ConsultaDadosView extends javax.swing.JFrame {
 
     }//GEN-LAST:event_ComboFimItemStateChanged
 
-    private String formatTot(float tot) {
-        DecimalFormat df = new DecimalFormat("###,###,##0.00");
-        System.out.println(df.format(tot));
-        return df.format(tot);
-    }
-
     private void horasTotais() {
         int value;
         try {
@@ -372,7 +369,7 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                     Objects.requireNonNull(ComboInicio.getSelectedItem()).toString()),
                     Integer.parseInt(Objects.requireNonNull(ComboFim.getSelectedItem()).toString()), codFun, Integer.parseInt(Objects.requireNonNull(ComboAno.getSelectedItem()).toString()));
 
-            txtTotal.setText("R$ " + this.formatTot(this.totalAReceber(value)));
+            txtTotal.setText("R$ " + utils.formatTot(this.totalAReceber(value)));
             TxtHoras.setText(String.valueOf(value));
         } catch (SQLException ex) {
             Logger.getLogger(ConsultaDadosView.class.getName()).log(Level.SEVERE, null, ex);
