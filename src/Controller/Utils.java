@@ -32,20 +32,20 @@ public class Utils {
         j.setSelectedIndex(-1);
     }
 
-    public void mesFuncionario(JComboBox j, ServicoBancoLancamento sbl,int cod, String order) throws SQLException {
+    public void mesFuncionario(JComboBox j, ServicoBancoLancamento sbl, int cod, String order) throws SQLException {
         if (j.getItemCount() > 0) {
             j.removeAllItems();
         }
 
-        ArrayList<Lancamento> lista = sbl.getDadosBy(cod,order);
+        ArrayList<Lancamento> lista = sbl.getDadosBy(cod, order);
 
         for (Lancamento lancamento : lista) {
             j.addItem(lancamento);
         }
         j.setSelectedIndex(-1);
     }
-    
-        public void anoFuncionario(JComboBox j, ServicoBancoLancamento sbl,int cod, String order) throws SQLException {
+
+    public void anoFuncionario(JComboBox j, ServicoBancoLancamento sbl, int cod, String order) throws SQLException {
         if (j.getItemCount() > 0) {
             j.removeAllItems();
         }
@@ -90,11 +90,11 @@ public class Utils {
         System.out.println(periodoIni);
         System.out.println(periodoFim);
         if (periodoIni > periodoFim) {
-            return sbl.getHorasByFuncionario(cod);
+            return sbl.getHorasByPeriodo(periodoIni, periodoIni, cod, ano);
         } else if (periodoFim != periodoIni && periodoFim > periodoIni) {
-            return sbl.getHorasByPeriodo(periodoIni, periodoFim, cod,ano);
+            return sbl.getHorasByPeriodo(periodoIni, periodoFim, cod, ano);
         } else {
-            return sbl.getHorasByFuncionario(cod);
+            return sbl.getHorasByPeriodo(periodoIni, periodoIni, cod, ano);
         }
     }
 

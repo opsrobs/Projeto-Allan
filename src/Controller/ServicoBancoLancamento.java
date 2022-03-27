@@ -89,7 +89,7 @@ public class ServicoBancoLancamento {
     public ArrayList<Lancamento> getDadosBy(int cod, String order) throws SQLException {
         ArrayList<Lancamento> lista = new ArrayList<>();
         try ( Statement st = conexao.getConexao().createStatement();  ResultSet rs = st.executeQuery(
-                "select * from lancamento where funcionario_cod_funcionaio = " + cod + " group by "+order+"")) {
+                "select * from lancamento where funcionario_cod_funcionaio = " + cod + " group by " + order + "")) {
 
             while (rs.next()) {
                 lista.add(new Lancamento(rs.getInt("id_Controle"),

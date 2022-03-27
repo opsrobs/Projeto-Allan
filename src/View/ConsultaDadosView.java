@@ -16,6 +16,8 @@ import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static java.awt.Font.*;
+
 /**
  *
  * @author PremierSoft
@@ -78,31 +80,31 @@ public class ConsultaDadosView extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Dialog", Font.ITALIC, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", ITALIC, 24)); // NOI18N
         jLabel1.setText("CONSULTA DE FUNCIONARIOS!!!");
 
-        lblFuncionario.setFont(new java.awt.Font("Dialog", Font.PLAIN, 15)); // NOI18N
+        lblFuncionario.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
         lblFuncionario.setText("Funcionario");
 
-        ComboFuncionarios.setFont(new java.awt.Font("Dialog", Font.PLAIN, 15)); // NOI18N
+        ComboFuncionarios.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
         ComboFuncionarios.addItemListener(this::ComboFuncionariosItemStateChanged);
 
-        jLabel2.setFont(new java.awt.Font("Dialog", Font.PLAIN, 15)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
         jLabel2.setText("CPF:");
 
         TxtRG.setEditable(false);
-        TxtRG.setFont(new java.awt.Font("Dialog", Font.PLAIN, 15)); // NOI18N
+        TxtRG.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
         TxtRG.setEnabled(false);
 
-        jLabel3.setFont(new java.awt.Font("Dialog", Font.PLAIN, 15)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
         jLabel3.setText("RG:");
 
         TxtCPF.setEditable(false);
-        TxtCPF.setFont(new java.awt.Font("Dialog", Font.PLAIN, 15)); // NOI18N
+        TxtCPF.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
         TxtCPF.setEnabled(false);
         TxtCPF.addActionListener(this::TxtCPFActionPerformed);
 
-        JbtnSalvar.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
+        JbtnSalvar.setFont(new java.awt.Font("Dialog", PLAIN, 18)); // NOI18N
         JbtnSalvar.setText("SALVAR INFORMAÇÕES");
         JbtnSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -110,7 +112,7 @@ public class ConsultaDadosView extends javax.swing.JFrame {
             }
         });
 
-        JbtnLimpar.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
+        JbtnLimpar.setFont(new java.awt.Font("Dialog", PLAIN, 18)); // NOI18N
         JbtnLimpar.setText("LIMPAR DADOS");
         JbtnLimpar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -118,28 +120,32 @@ public class ConsultaDadosView extends javax.swing.JFrame {
             }
         });
 
-        lblMes.setFont(new java.awt.Font("Dialog", Font.PLAIN, 15)); // NOI18N
+        lblMes.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
         lblMes.setText("Periodo inicial:");
 
-        lblHoras.setFont(new java.awt.Font("Dialog", Font.PLAIN, 15)); // NOI18N
+        lblHoras.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
         lblHoras.setText("Horas Trabalhadas:");
 
-        lblAno.setFont(new java.awt.Font("Dialog", Font.PLAIN, 15)); // NOI18N
+        lblAno.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
         lblAno.setText("Ano:");
 
-        TxtHoras.setFont(new java.awt.Font("Dialog", Font.PLAIN, 15)); // NOI18N
+        TxtHoras.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
 
-        lblMes1.setFont(new java.awt.Font("Dialog", Font.PLAIN, 15)); // NOI18N
+        lblMes1.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
         lblMes1.setText("Final do Periodo");
 
-        ComboInicio.setFont(new java.awt.Font("Dialog", Font.PLAIN, 15)); // NOI18N
-        ComboInicio.addItemListener(this::ComboInicioItemStateChanged);
+        ComboInicio.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+        ComboInicio.addItemListener(evt -> ComboInicioItemStateChanged(evt));
 
-        ComboFim.setFont(new java.awt.Font("Dialog", Font.PLAIN, 15)); // NOI18N
-        ComboFim.addItemListener(this::ComboFimItemStateChanged);
+        ComboFim.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+        ComboFim.addItemListener(evt -> {
+            ComboFimItemStateChanged(evt);
+        });
 
         ComboAno.setFont(new java.awt.Font("Dialog", Font.PLAIN, 15)); // NOI18N
-        ComboAno.addItemListener(this::ComboAnoItemStateChanged);
+        ComboAno.addItemListener(evt -> {
+            ComboAnoItemStateChanged(evt);
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
