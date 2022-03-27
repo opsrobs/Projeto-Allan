@@ -109,14 +109,20 @@ public class ServicoBancoLancamento {
                 + "from controle_horas.lancamento,"
                 + " controle_horas.funcionario"
                 + " where funcionario_cod_funcionaio = cod_funcionaio and"
-                + " cod_funcionaio = "+codFun+" and"
-                + " mes between "+periodoIni+" and "+periodoFim+" "
-                        + "and ano = "+ano+";")) {
-
+                + " cod_funcionaio = " + codFun + " and"
+                + " mes between " + periodoIni + " and " + periodoFim + " "
+                + "and ano = " + ano + ";")) {
             while (rs.next()) {
                 lista = rs.getInt(1);
             }
 
+            System.out.println(" select sum(hora_trabalhada) "
+                    + "from controle_horas.lancamento,"
+                    + " controle_horas.funcionario"
+                    + " where funcionario_cod_funcionaio = cod_funcionaio and"
+                    + " cod_funcionaio = " + codFun + " and"
+                    + " mes between " + periodoIni + " and " + periodoFim + " "
+                    + "and ano = " + ano + ";");
             return lista;
         }
     }
