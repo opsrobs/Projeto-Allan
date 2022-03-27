@@ -45,6 +45,12 @@ public class Utils {
         j.setSelectedIndex(-1);
     }
 
+    public String formatTot(float tot) {
+        DecimalFormat df = new DecimalFormat("###,###,##0.00");
+        System.out.println(df.format(tot));
+        return df.format(tot);
+    }
+
     public void anoFuncionario(JComboBox j, ServicoBancoLancamento sbl, int cod, String order) throws SQLException {
         if (j.getItemCount() > 0) {
             j.removeAllItems();
