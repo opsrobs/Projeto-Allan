@@ -69,6 +69,23 @@ public class ServicoBancoLancamento {
         }
     }
 
+    public String getValueHour(int cod) throws SQLException {
+        String value = "";
+        try ( Statement st = conexao.getConexao().createStatement();  ResultSet rs = st.executeQuery(
+                "SELECT funcionario_cod_funcionaio, hora_trabalhada, valor_Hora "
+                + "FROM controle_horas.lancamento, controle_horas.funcionario "
+                + "where funcionario.cod_funcionaio = "+cod+"")) {
+
+            while (rs.next()) {
+                value = rs.getString(3);
+            }
+            System.out.println(value);
+
+        }
+
+        return value;
+    }
+
     public ArrayList<Lancamento> getDadosBy(int cod, String order) throws SQLException {
         ArrayList<Lancamento> lista = new ArrayList<>();
         try ( Statement st = conexao.getConexao().createStatement();  ResultSet rs = st.executeQuery(
