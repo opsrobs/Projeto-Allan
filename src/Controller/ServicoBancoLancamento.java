@@ -73,7 +73,7 @@ public class ServicoBancoLancamento {
         try ( Statement st = conexao.getConexao().createStatement();  ResultSet rs = st.executeQuery(
                 "SELECT funcionario_cod_funcionaio, hora_trabalhada, valor_Hora "
                 + "FROM controle_horas.lancamento, controle_horas.funcionario "
-                + "where funcionario.cod_funcionaio = "+cod+"")) {
+                + "where funcionario.cod_funcionaio = " + cod + "")) {
 
             while (rs.next()) {
                 value = rs.getString(3);
