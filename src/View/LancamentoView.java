@@ -43,15 +43,15 @@ public class LancamentoView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        JLabel jLabel1 = new JLabel();
         TxtHoras = new javax.swing.JTextField();
-        lblFuncionario = new javax.swing.JLabel();
+        JLabel lblFuncionario = new JLabel();
         ComboFuncionarios = new javax.swing.JComboBox<>();
-        lblMes = new javax.swing.JLabel();
+        JLabel lblMes = new JLabel();
         TxtName = new javax.swing.JTextField();
-        lblHoras = new javax.swing.JLabel();
+        JLabel lblHoras = new JLabel();
         TxtMes = new javax.swing.JTextField();
-        lblAno = new javax.swing.JLabel();
+        JLabel lblAno = new JLabel();
         TxtAno = new javax.swing.JTextField();
         JbtnSalvar = new javax.swing.JButton();
         JbtnLimpar = new javax.swing.JButton();
@@ -64,37 +64,34 @@ public class LancamentoView extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 2, 24)); // NOI18N
-        jLabel1.setText("CADASTRO DE FUNCIONARIOS!!!");
+        jLabel1.setFont(new java.awt.Font("Dialog", Font.ITALIC, 24)); // NOI18N
+        jLabel1.setText("CADASTRO DE LANÇAMENTOS!!!");
 
-        TxtHoras.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        TxtHoras.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
 
-        lblFuncionario.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lblFuncionario.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
         lblFuncionario.setText("Funcionario");
 
-        ComboFuncionarios.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        ComboFuncionarios.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ComboFuncionariosItemStateChanged(evt);
-            }
-        });
+        ComboFuncionarios.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
+        ComboFuncionarios.addItemListener(this::ComboFuncionariosItemStateChanged);
 
-        lblMes.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lblMes.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
         lblMes.setText("Mês:");
 
-        TxtName.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        TxtName.setEditable(false);
+        TxtName.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
 
-        lblHoras.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lblHoras.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
         lblHoras.setText("Horas Trabalhadas:");
 
-        TxtMes.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        TxtMes.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
 
-        lblAno.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        lblAno.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
         lblAno.setText("Ano:");
 
-        TxtAno.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        TxtAno.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
 
-        JbtnSalvar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JbtnSalvar.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
         JbtnSalvar.setText("SALVAR INFORMAÇÕES");
         JbtnSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -102,7 +99,7 @@ public class LancamentoView extends javax.swing.JFrame {
             }
         });
 
-        JbtnLimpar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        JbtnLimpar.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
         JbtnLimpar.setText("LIMPAR DADOS");
         JbtnLimpar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -304,10 +301,5 @@ public class LancamentoView extends javax.swing.JFrame {
     private javax.swing.JTextField TxtHoras;
     private javax.swing.JTextField TxtMes;
     private javax.swing.JTextField TxtName;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel lblAno;
-    private javax.swing.JLabel lblFuncionario;
-    private javax.swing.JLabel lblHoras;
-    private javax.swing.JLabel lblMes;
     // End of variables declaration//GEN-END:variables
 }

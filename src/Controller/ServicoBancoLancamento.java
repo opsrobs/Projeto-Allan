@@ -102,6 +102,23 @@ public class ServicoBancoLancamento {
         return lista;
     }
 
+    public ArrayList<Lancamento> getAnoBy() throws SQLException {
+        ArrayList<Lancamento> lista = new ArrayList<>();
+        try ( Statement st = conexao.getConexao().createStatement();  ResultSet rs = st.executeQuery(
+                "select * from lancamento group by ano ")) {
+
+            while (rs.next()) {
+                lista.add(new Lancamento(rs.getInt("id_Controle"),
+                        rs.getInt("funcionario_cod_funcionaio"),
+                        rs.getFloat("hora_trabalhada"),
+                        rs.getInt("mes"),
+                        rs.getInt("ano")));
+            }
+        }
+
+        return lista;
+    }
+
     public int getHorasByPeriodo(int periodoIni, int periodoFim, int codFun, int ano) throws SQLException {
         int lista = 0;
         try ( Statement st = conexao.getConexao().createStatement();  ResultSet rs = st.executeQuery(" select sum(hora_trabalhada) "
@@ -134,14 +151,13 @@ public class ServicoBancoLancamento {
     public ArrayList<String[]> getTabelaByQuery() throws SQLException {
         ArrayList<String[]> dados = new ArrayList<>();
         Utils utils = new Utils();
-        try (Statement st = conexao.getConexao().createStatement();
-                ResultSet rs = st.executeQuery("SELECT * FROM controle_horas.gettabelabyquery;")) {
+        try ( Statement st = conexao.getConexao().createStatement();  ResultSet rs = st.executeQuery("SELECT * FROM controle_horas.gettabelabyquery;")) {
 
             while (rs.next()) {
                 dados.add(new String[]{
                     rs.getString(1),
                     rs.getString(2),
-                    rs.getString(3),
+                    utils.mes(rs.getString(3)),
                     rs.getString(4),
                     utils.formatTot(Float.parseFloat(rs.getString(5))),
                     rs.getString(6)});

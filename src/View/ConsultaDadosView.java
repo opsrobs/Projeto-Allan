@@ -103,7 +103,6 @@ public class ConsultaDadosView extends javax.swing.JFrame {
         TxtCPF.setEditable(false);
         TxtCPF.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
         TxtCPF.setEnabled(false);
-        TxtCPF.addActionListener(this::TxtCPFActionPerformed);
 
         JbtnSalvar.setFont(new java.awt.Font("Dialog", PLAIN, 18)); // NOI18N
         JbtnSalvar.setText("SALVAR INFORMAÇÕES");
@@ -303,7 +302,7 @@ public class ConsultaDadosView extends javax.swing.JFrame {
         try {
             utils.mesFuncionario(ComboInicio, sbl, funcionario.getCod_funcionario(), " mes");
             utils.mesFuncionario(ComboFim, sbl, funcionario.getCod_funcionario(), " mes");
-            utils.anoFuncionario(ComboAno, sbl, funcionario.getCod_funcionario(), " ano");
+            utils.getAnoFuncionario(ComboAno, sbl, funcionario.getCod_funcionario(), " ano");
         } catch (SQLException ex) {
             Logger.getLogger(ConsultaDadosView.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -375,10 +374,6 @@ public class ConsultaDadosView extends javax.swing.JFrame {
             Logger.getLogger(ConsultaDadosView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    private void TxtCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtCPFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtCPFActionPerformed
 
     private void ComboAnoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboAnoItemStateChanged
         TxtHoras.setText("");

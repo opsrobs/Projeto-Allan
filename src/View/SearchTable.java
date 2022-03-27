@@ -6,11 +6,14 @@ package View;
 
 import Controller.ServicoBancoLancamento;
 import Controller.SimpleTableModel;
+import Controller.Utils;
 import Models.Lancamento;
 
 import java.awt.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
@@ -20,7 +23,8 @@ import javax.swing.*;
 public class SearchTable extends javax.swing.JFrame {
 
     private final Lancamento lancamento = new Lancamento();
-    ServicoBancoLancamento sbl = new ServicoBancoLancamento();
+    private final ServicoBancoLancamento sbl = new ServicoBancoLancamento();
+    Utils utils = new Utils();
 
     public SearchTable() {
         this.JFrameCenterPositionTest();
@@ -41,11 +45,7 @@ public class SearchTable extends javax.swing.JFrame {
 
         JScrollPane jScrollPane1 = new JScrollPane();
         JtTabelaSalario = new javax.swing.JTable();
-        JLabel lblMes = new JLabel();
         JLabel lblAno = new JLabel();
-        JLabel lblMes1 = new JLabel();
-        ComboInicio = new javax.swing.JComboBox<>();
-        ComboFim = new javax.swing.JComboBox<>();
         ComboAno = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,20 +68,8 @@ public class SearchTable extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(JtTabelaSalario);
 
-        lblMes.setFont(new java.awt.Font("Dialog", Font.PLAIN, 15)); // NOI18N
-        lblMes.setText("Periodo inicial:");
-
         lblAno.setFont(new java.awt.Font("Dialog", Font.PLAIN, 15)); // NOI18N
         lblAno.setText("Ano:");
-
-        lblMes1.setFont(new java.awt.Font("Dialog", Font.PLAIN, 15)); // NOI18N
-        lblMes1.setText("Final do Periodo");
-
-        ComboInicio.setFont(new java.awt.Font("Dialog", Font.PLAIN, 15)); // NOI18N
-        ComboInicio.addItemListener(this::ComboInicioItemStateChanged);
-
-        ComboFim.setFont(new java.awt.Font("Dialog", Font.PLAIN, 15)); // NOI18N
-        ComboFim.addItemListener(this::ComboFimItemStateChanged);
 
         ComboAno.setFont(new java.awt.Font("Dialog", Font.PLAIN, 15)); // NOI18N
         ComboAno.addItemListener(this::ComboAnoItemStateChanged);
@@ -92,39 +80,22 @@ public class SearchTable extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(lblMes)
-                .addGap(35, 35, 35)
-                .addComponent(ComboInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(lblMes1)
-                .addGap(6, 6, 6)
-                .addComponent(ComboFim, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
+                .addGap(50, 50, 50)
                 .addComponent(lblAno)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ComboAno, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(lblMes))
-                    .addComponent(ComboInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblMes1)
-                        .addComponent(ComboFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(lblAno))
-                    .addComponent(ComboAno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ComboAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAno))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(52, Short.MAX_VALUE))
@@ -133,38 +104,22 @@ public class SearchTable extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ComboInicioItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboInicioItemStateChanged
-        if (ComboInicio.getItemCount() <= 0) {
-            return;
-        }
-        if (ComboInicio.getSelectedIndex() < 0) {
-            return;
-        }
-        Lancamento lancamento = (Lancamento) ComboInicio.getSelectedItem();
-        assert lancamento != null;
-    }//GEN-LAST:event_ComboInicioItemStateChanged
-
-    private void ComboFimItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboFimItemStateChanged
-        if (ComboFim.getItemCount() <= 0) {
-            return;
-        }
-        if (ComboFim.getSelectedIndex() < 0) {
-            return;
-        }
-        Lancamento lancamento = (Lancamento) ComboFim.getSelectedItem();
-        assert lancamento != null;
-        //        System.out.println(ComboFim.getSelectedItem());
-        //        System.out.println(ComboInicio.getSelectedItem());
-    }//GEN-LAST:event_ComboFimItemStateChanged
-
     private void ComboAnoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboAnoItemStateChanged
-        if (ComboInicio.getSelectedIndex() >= 0 && ComboFim.getSelectedIndex() >= 0) {
-            ComboAno.getSelectedIndex();
+        if (ComboAno.getItemCount() <= 0) {
+            return;
         }
+        ComboAno.getSelectedIndex();
     }//GEN-LAST:event_ComboAnoItemStateChanged
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        try {
+            utils.anoFuncionario(ComboAno, sbl);
+        } catch (SQLException ex) {
+            Logger.getLogger(SearchTable.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.carregarTabela();
+        ComboAno.setSelectedIndex(0);
+
     }//GEN-LAST:event_formWindowActivated
 
     private void carregarTabela() {
@@ -209,8 +164,6 @@ public class SearchTable extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Lancamento> ComboAno;
-    private javax.swing.JComboBox<Lancamento> ComboFim;
-    private javax.swing.JComboBox<Lancamento> ComboInicio;
     private javax.swing.JTable JtTabelaSalario;
     // End of variables declaration//GEN-END:variables
 }

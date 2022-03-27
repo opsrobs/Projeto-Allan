@@ -17,6 +17,7 @@ public class Utils {
     private final SimpleDateFormat dh = new SimpleDateFormat("hh:mm:ss");
     ServicoBancoFuncionario servicoBancoFuncionario = new ServicoBancoFuncionario();
     ServicoBancoLancamento sbl = new ServicoBancoLancamento();
+    private JComboBox j;
 
     public void atualizarFuncionario(JComboBox<Funcionario> j, ServicoBancoFuncionario sb) throws SQLException {
         if (j.getItemCount() > 0) {
@@ -39,8 +40,28 @@ public class Utils {
 
         ArrayList<Lancamento> lista = sbl.getDadosBy(cod, order);
 
-        for (Lancamento lancamento : lista) j.addItem(lancamento);
+        for (Lancamento lancamento : lista) {
+            j.addItem(lancamento);
+        }
         j.setSelectedIndex(-1);
+    }
+
+    public String mes(String numMes) {
+        return switch (numMes) {
+            case "1" -> "Janeiro";
+            case "2" -> "Fevereiro";
+            case "3" -> "Março";
+            case "4" -> "Abri";
+            case "5" -> "Maio";
+            case "6" -> "Junho";
+            case "7" -> "Julho";
+            case "8" -> "Agosto";
+            case "9" -> "Setembro";
+            case "10" -> "Outubro";
+            case "11" -> "Novembro";
+            case "12" -> "Dezembro";
+            default -> "Mês invalido!!!";
+        };
     }
 
     public String formatTot(float tot) {
@@ -49,12 +70,27 @@ public class Utils {
         return df.format(tot);
     }
 
-    public void anoFuncionario(JComboBox j, ServicoBancoLancamento sbl, int cod, String order) throws SQLException {
+    public void getAnoFuncionario(JComboBox j, ServicoBancoLancamento sbl, int cod, String order) throws SQLException {
         if (j.getItemCount() > 0) {
             j.removeAllItems();
         }
 
         ArrayList<Lancamento> lista = sbl.getDadosBy(cod, order);
+
+        for (Lancamento lancamento : lista) {
+            j.addItem(lancamento.getAno());
+        }
+        j.setSelectedIndex(-1);
+    }
+
+    public void anoFuncionario(JComboBox j, ServicoBancoLancamento sbl) throws SQLException {
+        this.j = j;
+        this.sbl = sbl;
+        if (j.getItemCount() > 0) {
+            j.removeAllItems();
+        }
+
+        ArrayList<Lancamento> lista = sbl.getAnoBy();
 
         for (Lancamento lancamento : lista) {
             j.addItem(lancamento.getAno());
