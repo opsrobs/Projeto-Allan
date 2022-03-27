@@ -82,6 +82,10 @@ public class Utils {
         return Integer.parseInt(content);
     }
 
+    public Float verifyValueOfCombo(int cod) throws SQLException {
+        return Float.parseFloat(sbl.getValueHour(cod));
+    }
+
     public int verifySumTime(int periodoIni, int periodoFim, int cod, int ano) throws SQLException {
         System.out.println(periodoIni);
         System.out.println(periodoFim);
