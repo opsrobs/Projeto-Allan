@@ -3,14 +3,13 @@ package Controller;
 import Models.Funcionario;
 import Models.Lancamento;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.InputMismatchException;
 import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 public class Utils {
 
@@ -19,7 +18,7 @@ public class Utils {
     ServicoBancoFuncionario servicoBancoFuncionario = new ServicoBancoFuncionario();
     ServicoBancoLancamento sbl = new ServicoBancoLancamento();
 
-    public void atualizarFuncionario(JComboBox j, ServicoBancoFuncionario sb) throws SQLException {
+    public void atualizarFuncionario(JComboBox<Funcionario> j, ServicoBancoFuncionario sb) throws SQLException {
         if (j.getItemCount() > 0) {
             j.removeAllItems();
         }
@@ -32,16 +31,15 @@ public class Utils {
         j.setSelectedIndex(-1);
     }
 
-    public void mesFuncionario(JComboBox j, ServicoBancoLancamento sbl, int cod, String order) throws SQLException {
+    public void mesFuncionario(JComboBox<Lancamento> j, ServicoBancoLancamento sbl, int cod, String order) throws SQLException {
+        this.sbl = sbl;
         if (j.getItemCount() > 0) {
             j.removeAllItems();
         }
 
         ArrayList<Lancamento> lista = sbl.getDadosBy(cod, order);
 
-        for (Lancamento lancamento : lista) {
-            j.addItem(lancamento);
-        }
+        for (Lancamento lancamento : lista) j.addItem(lancamento);
         j.setSelectedIndex(-1);
     }
 
@@ -97,7 +95,7 @@ public class Utils {
         System.out.println(periodoFim);
         if (periodoIni > periodoFim) {
             return sbl.getHorasByPeriodo(periodoIni, periodoIni, cod, ano);
-        } else if (periodoFim != periodoIni && periodoFim > periodoIni) {
+        } else if (periodoFim > periodoIni) {
             return sbl.getHorasByPeriodo(periodoIni, periodoFim, cod, ano);
         } else {
             return sbl.getHorasByPeriodo(periodoIni, periodoIni, cod, ano);
@@ -106,9 +104,6 @@ public class Utils {
 
     public boolean verificaCpf(String input) {
         String cpf = input.replaceAll("\\D", "");
-        if (cpf == null) {
-            return false;
-        }
 
         // considera-se erro cpf's formados por uma sequencia de numeros iguais
         if (cpf.equals("00000000000") || cpf.equals("11111111111") || cpf.equals("22222222222")
@@ -129,7 +124,7 @@ public class Utils {
                 // converte o i-esimo caractere do cpf em um numero:
                 // por exemplo, transforma o caractere '0' no inteiro 0
                 // (48 eh a posicao de '0' na tabela ASCII)
-                num = (int) (cpf.charAt(i) - 48);
+                num = cpf.charAt(i) - 48;
                 sm = sm + (num * peso);
                 peso = peso - 1;
             }
@@ -144,7 +139,7 @@ public class Utils {
             sm = 0;
             peso = 11;
             for (i = 0; i < 10; i++) {
-                num = (int) (cpf.charAt(i) - 48);
+                num = cpf.charAt(i) - 48;
                 sm = sm + (num * peso);
                 peso = peso - 1;
             }
@@ -155,11 +150,7 @@ public class Utils {
                 dig11 = (char) (r + 48);
             }
             // Verifica se os digitos calculados conferem com os digitos informados.
-            if ((dig10 == cpf.charAt(9)) && (dig11 == cpf.charAt(10))) {
-                return (true);
-            } else {
-                return (false);
-            }
+            return (dig10 == cpf.charAt(9)) && (dig11 == cpf.charAt(10));
         } catch (InputMismatchException erro) {
             return (false);
         }
