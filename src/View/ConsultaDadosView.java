@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static java.awt.Font.*;
+import java.text.ParseException;
 
 /**
  *
@@ -72,6 +73,8 @@ public class ConsultaDadosView extends javax.swing.JFrame {
         ComboAno = new javax.swing.JComboBox<>();
         JLabel lblTotal = new JLabel();
         txtTotal = new javax.swing.JTextField();
+        RbEditar = new javax.swing.JRadioButton();
+        TxtNome = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 600));
@@ -124,9 +127,14 @@ public class ConsultaDadosView extends javax.swing.JFrame {
         lblMes.setText("Periodo inicial:");
 
         lblHoras.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+
+
+
+
         lblHoras.setText("Horas Trabalhadas:");
 
         lblAno.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+
         lblAno.setText("Ano:");
 
         TxtHoras.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
@@ -149,6 +157,17 @@ public class ConsultaDadosView extends javax.swing.JFrame {
         txtTotal.setEditable(false);
         txtTotal.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
 
+        RbEditar.setText("EDITAR");
+        RbEditar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RbEditarMouseClicked(evt);
+            }
+        });
+
+        TxtNome.setEditable(false);
+        TxtNome.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+        TxtNome.setEnabled(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -156,12 +175,11 @@ public class ConsultaDadosView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblFuncionario)
-                                .addGap(54, 54, 54)
-                                .addComponent(ComboFuncionarios, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblMes)
                                 .addGap(35, 35, 35)
@@ -178,23 +196,15 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                                         .addComponent(lblAno)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(ComboAno, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel2)
-                        .addGap(96, 96, 96)
-                        .addComponent(TxtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel3)
-                        .addGap(104, 104, 104)
-                        .addComponent(TxtRG, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(96, 96, 96)
+                                .addComponent(TxtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(104, 104, 104)
+                                .addComponent(TxtRG, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(JbtnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(71, 71, 71)
@@ -202,7 +212,15 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblHoras)
                                 .addGap(1, 1, 1)
-                                .addComponent(TxtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(TxtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblFuncionario)
+                                .addGap(54, 54, 54)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(TxtNome)
+                                    .addComponent(ComboFuncionarios, 0, 248, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(RbEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(0, 53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -215,8 +233,12 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(lblFuncionario))
-                    .addComponent(ComboFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ComboFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(RbEditar)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(TxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
@@ -259,7 +281,7 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(JbtnSalvar)
                     .addComponent(JbtnLimpar))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         pack();
@@ -276,6 +298,8 @@ public class ConsultaDadosView extends javax.swing.JFrame {
         ComboInicio.setSelectedIndex(-1);
         ComboFim.setSelectedIndex(-1);
         txtTotal.setText("");
+        JbtnSalvar.setEnabled(false);
+        JbtnSalvar.setVisible(false);
 
     }
 
@@ -309,10 +333,27 @@ public class ConsultaDadosView extends javax.swing.JFrame {
         JbtnSalvar.setVisible(true);
         JbtnSalvar.setEnabled(true);
         JbtnLimpar.setEnabled(true);
+        utils.visibleButtonTrue(RbEditar, TxtNome, funcionario.getNome_funcionario());
     }//GEN-LAST:event_ComboFuncionariosItemStateChanged
 
     private void JbtnSalvarMouseClicked(MouseEvent evt) {//GEN-FIRST:event_JbtnSalvarMouseClicked
-
+        if (TxtNome.getText().isBlank() | TxtNome.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Informe um nome válido");
+            TxtNome.requestFocus();
+            return;
+        }
+        JOptionPane.showMessageDialog(rootPane, TxtNome.getText());
+        try {
+            Funcionario funcionario = new Funcionario(TxtNome.getText());
+            sb.update(funcionario);
+            JOptionPane.showMessageDialog(
+                    null, "Cadastrado com sucesso",
+                    "Cadastro!!!", JOptionPane.INFORMATION_MESSAGE,
+                    new ImageIcon("C:\\Users\\PremierSoft\\IdeaProjects\\Campeonatos_Futebol\\src\\View\\Cadastro.gif"));
+            this.clearScreen();
+        } catch (SQLException ex) {
+            Logger.getLogger(FuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_JbtnSalvarMouseClicked
 
     private void JbtnLimparMouseClicked(MouseEvent evt) {//GEN-FIRST:event_JbtnLimparMouseClicked
@@ -330,6 +371,8 @@ public class ConsultaDadosView extends javax.swing.JFrame {
 
     private void ComboInicioItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboInicioItemStateChanged
         this.clearTotal();
+                TxtNome.setVisible(false);
+
         if (ComboInicio.getItemCount() <= 0) {
             return;
         }
@@ -384,6 +427,18 @@ public class ConsultaDadosView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ComboAnoItemStateChanged
 
+    private void RbEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RbEditarMouseClicked
+        if (RbEditar.isSelected()) {
+            ComboInicio.setEnabled(false);
+            ComboFim.setEnabled(false);
+            ComboAno.setEnabled(false);
+            TxtHoras.setEnabled(false);
+            txtTotal.setEnabled(false);
+            TxtNome.setEditable(true);
+            TxtNome.setEnabled(true);
+        }
+    }//GEN-LAST:event_RbEditarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -419,8 +474,10 @@ public class ConsultaDadosView extends javax.swing.JFrame {
     private javax.swing.JComboBox<Lancamento> ComboInicio;
     private javax.swing.JButton JbtnLimpar;
     private javax.swing.JButton JbtnSalvar;
+    private javax.swing.JRadioButton RbEditar;
     private javax.swing.JTextField TxtCPF;
     private javax.swing.JTextField TxtHoras;
+    private javax.swing.JTextField TxtNome;
     private javax.swing.JTextField TxtRG;
     private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables

@@ -11,6 +11,10 @@ public class Funcionario {
     double valor_hora;
     Date data_nasc;
 
+    public Funcionario(String nome_funcionario) {
+        this.nome_funcionario = nome_funcionario;
+    }
+
     public Date getData_nasc() {
         return data_nasc;
     }

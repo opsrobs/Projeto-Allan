@@ -42,15 +42,9 @@ public class ServicoBancoFuncionario {
     }
 
     public void update(Funcionario funcionario) throws SQLException {
-        try ( PreparedStatement pst = conexao.getConexao().prepareStatement("update funcionario set nome_Funcionario = ?, CPF = ?, Rg = ?, genero =?, valor_Hora =?,data_nasc=?, status = ? where (cod_funcionaio = ?)")) {
+        try ( PreparedStatement pst = conexao.getConexao().prepareStatement("update funcionario set nome_Funcionario = ? where (cod_funcionaio = ?)")) {
             pst.setString(1, funcionario.getNome_funcionario());
-            pst.setString(2, funcionario.getCpf());
-            pst.setString(3, funcionario.getRg());
-            pst.setString(4, funcionario.getGenero());
-            pst.setDouble(5, funcionario.getValor_hora());
-            pst.setDate(6, new java.sql.Date(funcionario.getData_nasc().getTime()));
-            pst.setString(7, funcionario.getStatus());
-            pst.setInt(8, funcionario.getCod_funcionario());
+            pst.setInt(2, funcionario.getCod_funcionario());
             pst.executeUpdate();
         }
         conexao.close();

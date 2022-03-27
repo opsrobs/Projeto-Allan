@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.InputMismatchException;
 import javax.swing.JComboBox;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+import javax.swing.plaf.basic.BasicBorders;
 
 public class Utils {
 
@@ -17,7 +20,13 @@ public class Utils {
     private final SimpleDateFormat dh = new SimpleDateFormat("hh:mm:ss");
     ServicoBancoFuncionario servicoBancoFuncionario = new ServicoBancoFuncionario();
     ServicoBancoLancamento sbl = new ServicoBancoLancamento();
-    private JComboBox j;
+
+    public void visibleButtonTrue(JRadioButton edit, JTextField name, String func){
+        if (edit.isSelected()) {
+            name.setVisible(true);
+            name.setText(func);
+        }
+    }
 
     public void atualizarFuncionario(JComboBox<Funcionario> j, ServicoBancoFuncionario sb) throws SQLException {
         if (j.getItemCount() > 0) {
@@ -84,7 +93,6 @@ public class Utils {
     }
 
     public void anoFuncionario(JComboBox j, ServicoBancoLancamento sbl) throws SQLException {
-        this.j = j;
         this.sbl = sbl;
         if (j.getItemCount() > 0) {
             j.removeAllItems();
