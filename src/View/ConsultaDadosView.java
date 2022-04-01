@@ -53,29 +53,29 @@ public class ConsultaDadosView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel1 = new javax.swing.JLabel();
-        lblFuncionario = new javax.swing.JLabel();
+        JSeparator jSeparator1 = new JSeparator();
+        JLabel jLabel1 = new JLabel();
+        JLabel lblFuncionario = new JLabel();
         ComboFuncionarios = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
+        JLabel jLabel2 = new JLabel();
         TxtRG = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        JLabel jLabel3 = new JLabel();
         TxtCPF = new javax.swing.JTextField();
         JbtnSalvar = new javax.swing.JButton();
         JbtnLimpar = new javax.swing.JButton();
-        lblMes = new javax.swing.JLabel();
-        lblHoras = new javax.swing.JLabel();
-        lblAno = new javax.swing.JLabel();
+        JLabel lblMes = new JLabel();
+        JLabel lblHoras = new JLabel();
+        JLabel lblAno = new JLabel();
         TxtHoras = new javax.swing.JTextField();
-        lblMes1 = new javax.swing.JLabel();
+        JLabel lblMes1 = new JLabel();
         ComboInicio = new javax.swing.JComboBox<>();
         ComboFim = new javax.swing.JComboBox<>();
         ComboAno = new javax.swing.JComboBox<>();
-        LblTotal = new javax.swing.JLabel();
+        JLabel lblTotal = new JLabel();
         txtTotal = new javax.swing.JTextField();
         RbEditar = new javax.swing.JRadioButton();
         TxtNome = new javax.swing.JTextField();
-        JbExcluir = new javax.swing.JButton();
+        JButton jbExcluir = new JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 600));
@@ -142,16 +142,13 @@ public class ConsultaDadosView extends javax.swing.JFrame {
         ComboInicio.addItemListener(this::ComboInicioItemStateChanged);
 
         ComboFim.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
-        ComboFim.addItemListener((ItemEvent evt) ->
-                ComboFimItemStateChanged(evt));
+        ComboFim.addItemListener(this::ComboFimItemStateChanged);
 
         ComboAno.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
-        ComboAno.addItemListener((ItemEvent evt) -> {
-            ComboAnoItemStateChanged(evt);
-        });
+        ComboAno.addItemListener(this::ComboAnoItemStateChanged);
 
-        LblTotal.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
-        LblTotal.setText("Total a Receber:");
+        lblTotal.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+        lblTotal.setText("Total a Receber:");
 
         txtTotal.setEditable(false);
         txtTotal.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
@@ -167,9 +164,9 @@ public class ConsultaDadosView extends javax.swing.JFrame {
         TxtNome.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
         TxtNome.setEnabled(false);
 
-        JbExcluir.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/delete.png")))); // NOI18N
-        JbExcluir.setBorder(null);
-        JbExcluir.addMouseListener(new java.awt.event.MouseAdapter() {
+        jbExcluir.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/delete.png")))); // NOI18N
+        jbExcluir.setBorder(null);
+        jbExcluir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JbExcluirMouseClicked(evt);
             }
@@ -194,7 +191,7 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                                 .addGap(12, 12, 12)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblMes1)
-                                    .addComponent(LblTotal))
+                                    .addComponent(lblTotal))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -215,7 +212,7 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(JbtnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(JbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(JbtnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
@@ -284,7 +281,7 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                         .addComponent(lblHoras))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(TxtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(LblTotal)
+                        .addComponent(lblTotal)
                         .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -294,7 +291,7 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                             .addComponent(JbtnLimpar)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(54, 54, 54)
-                        .addComponent(JbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(79, Short.MAX_VALUE))
         );
 
@@ -491,6 +488,10 @@ public class ConsultaDadosView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JbExcluirMouseClicked
 
+    private void ComboInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboInicioActionPerformed
+        
+    }//GEN-LAST:event_ComboInicioActionPerformed
+
     private void edit() {
         if (RbEditar.isSelected()) {
             ComboInicio.setEnabled(false);
@@ -545,24 +546,13 @@ public class ConsultaDadosView extends javax.swing.JFrame {
     private javax.swing.JComboBox<Lancamento> ComboFim;
     private javax.swing.JComboBox<Funcionario> ComboFuncionarios;
     private javax.swing.JComboBox<Lancamento> ComboInicio;
-    private javax.swing.JButton JbExcluir;
     private javax.swing.JButton JbtnLimpar;
     private javax.swing.JButton JbtnSalvar;
-    private javax.swing.JLabel LblTotal;
     private javax.swing.JRadioButton RbEditar;
     private javax.swing.JTextField TxtCPF;
     private javax.swing.JTextField TxtHoras;
     private javax.swing.JTextField TxtNome;
     private javax.swing.JTextField TxtRG;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel lblAno;
-    private javax.swing.JLabel lblFuncionario;
-    private javax.swing.JLabel lblHoras;
-    private javax.swing.JLabel lblMes;
-    private javax.swing.JLabel lblMes1;
     private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }
