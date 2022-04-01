@@ -12,7 +12,6 @@ import java.util.InputMismatchException;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-import javax.swing.plaf.basic.BasicBorders;
 
 public class Utils {
 
@@ -48,6 +47,20 @@ public class Utils {
         }
 
         ArrayList<Lancamento> lista = sbl.getDadosBy(cod, order);
+
+        for (Lancamento lancamento : lista) {
+            j.addItem(lancamento);
+        }
+        j.setSelectedIndex(-1);
+    }
+    
+    public void mesFuncionario(JComboBox<Lancamento> j, ServicoBancoLancamento sbl, String order) throws SQLException {
+        this.sbl = sbl;
+        if (j.getItemCount() > 0) {
+            j.removeAllItems();
+        }
+
+        ArrayList<Lancamento> lista = sbl.getMesBy(order);
 
         for (Lancamento lancamento : lista) {
             j.addItem(lancamento);
@@ -94,7 +107,7 @@ public class Utils {
         j.setSelectedIndex(-1);
     }
 
-    public void anoFuncionario(JComboBox j, ServicoBancoLancamento sbl) throws SQLException {
+    public void anoFuncionario(JComboBox<Integer> j, ServicoBancoLancamento sbl) throws SQLException {
         this.sbl = sbl;
         if (j.getItemCount() > 0) {
             j.removeAllItems();
@@ -102,9 +115,7 @@ public class Utils {
 
         ArrayList<Lancamento> lista = sbl.getAnoBy();
 
-        for (Lancamento lancamento : lista) {
-            j.addItem(lancamento.getAno());
-        }
+        for (Lancamento lancamento : lista) j.addItem(lancamento.getAno());
         j.setSelectedIndex(-1);
     }
 
