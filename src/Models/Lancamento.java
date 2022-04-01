@@ -15,6 +15,10 @@ public class Lancamento {
         this.ano = ano;
     }
 
+    public Lancamento(int mes) {
+        this.mes = mes;
+    }
+
     public Lancamento(int codFuncionario, float horasTrabalhadas, int mes, int ano) {
         this.codFuncionario = codFuncionario;
         this.horasTrabalhadas = horasTrabalhadas;
