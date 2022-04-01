@@ -56,7 +56,9 @@ public class Utils {
     }
 
     public String mes(String numMes) {
-        return switch (numMes) {
+        String value;
+        value = numMes.replace("0", "");
+        return switch (value) {
             case "1" -> "Janeiro";
             case "2" -> "Fevereiro";
             case "3" -> "Março";
