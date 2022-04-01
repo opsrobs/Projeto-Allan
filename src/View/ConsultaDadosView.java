@@ -53,28 +53,29 @@ public class ConsultaDadosView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JSeparator jSeparator1 = new JSeparator();
-        JLabel jLabel1 = new JLabel();
-        JLabel lblFuncionario = new JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
+        lblFuncionario = new javax.swing.JLabel();
         ComboFuncionarios = new javax.swing.JComboBox<>();
-        JLabel jLabel2 = new JLabel();
+        jLabel2 = new javax.swing.JLabel();
         TxtRG = new javax.swing.JTextField();
-        JLabel jLabel3 = new JLabel();
+        jLabel3 = new javax.swing.JLabel();
         TxtCPF = new javax.swing.JTextField();
         JbtnSalvar = new javax.swing.JButton();
         JbtnLimpar = new javax.swing.JButton();
-        JLabel lblMes = new JLabel();
-        JLabel lblHoras = new JLabel();
-        JLabel lblAno = new JLabel();
+        lblMes = new javax.swing.JLabel();
+        lblHoras = new javax.swing.JLabel();
+        lblAno = new javax.swing.JLabel();
         TxtHoras = new javax.swing.JTextField();
-        JLabel lblMes1 = new JLabel();
+        lblMes1 = new javax.swing.JLabel();
         ComboInicio = new javax.swing.JComboBox<>();
         ComboFim = new javax.swing.JComboBox<>();
         ComboAno = new javax.swing.JComboBox<>();
-        JLabel lblTotal = new JLabel();
+        LblTotal = new javax.swing.JLabel();
         txtTotal = new javax.swing.JTextField();
         RbEditar = new javax.swing.JRadioButton();
         TxtNome = new javax.swing.JTextField();
+        JbExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 600));
@@ -127,14 +128,9 @@ public class ConsultaDadosView extends javax.swing.JFrame {
         lblMes.setText("Periodo inicial:");
 
         lblHoras.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
-
-
-
-
         lblHoras.setText("Horas Trabalhadas:");
 
         lblAno.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
-
         lblAno.setText("Ano:");
 
         TxtHoras.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
@@ -146,13 +142,16 @@ public class ConsultaDadosView extends javax.swing.JFrame {
         ComboInicio.addItemListener(this::ComboInicioItemStateChanged);
 
         ComboFim.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
-        ComboFim.addItemListener(this::ComboFimItemStateChanged);
+        ComboFim.addItemListener((ItemEvent evt) ->
+                ComboFimItemStateChanged(evt));
 
         ComboAno.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
-        ComboAno.addItemListener(this::ComboAnoItemStateChanged);
+        ComboAno.addItemListener((ItemEvent evt) -> {
+            ComboAnoItemStateChanged(evt);
+        });
 
-        lblTotal.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
-        lblTotal.setText("Total a Receber:");
+        LblTotal.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+        LblTotal.setText("Total a Receber:");
 
         txtTotal.setEditable(false);
         txtTotal.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
@@ -167,6 +166,14 @@ public class ConsultaDadosView extends javax.swing.JFrame {
         TxtNome.setEditable(false);
         TxtNome.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
         TxtNome.setEnabled(false);
+
+        JbExcluir.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/delete.png")))); // NOI18N
+        JbExcluir.setBorder(null);
+        JbExcluir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JbExcluirMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -187,7 +194,7 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                                 .addGap(12, 12, 12)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblMes1)
-                                    .addComponent(lblTotal))
+                                    .addComponent(LblTotal))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -207,18 +214,21 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                                 .addComponent(TxtRG, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(JbtnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(71, 71, 71)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(JbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(JbtnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblHoras)
                                 .addGap(1, 1, 1)
                                 .addComponent(TxtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblFuncionario)
-                                .addGap(54, 54, 54)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(TxtNome)
-                                    .addComponent(ComboFuncionarios, 0, 248, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(TxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblFuncionario)
+                                        .addGap(54, 54, 54)
+                                        .addComponent(ComboFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addComponent(RbEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(0, 53, Short.MAX_VALUE))
@@ -229,6 +239,7 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(80, 80, 80)
+                .addComponent(TxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
@@ -236,8 +247,6 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(ComboFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(RbEditar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -275,13 +284,18 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                         .addComponent(lblHoras))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(TxtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblTotal)
+                        .addComponent(LblTotal)
                         .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JbtnSalvar)
-                    .addComponent(JbtnLimpar))
-                .addContainerGap(67, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JbtnSalvar)
+                            .addComponent(JbtnLimpar)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(JbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         pack();
@@ -342,17 +356,30 @@ public class ConsultaDadosView extends javax.swing.JFrame {
             TxtNome.requestFocus();
             return;
         }
-        JOptionPane.showMessageDialog(rootPane, TxtNome.getText());
+
         try {
-            Funcionario funcionario = new Funcionario(TxtNome.getText());
-            sb.update(funcionario);
-            JOptionPane.showMessageDialog(
-                    null, "Cadastrado com sucesso",
-                    "Cadastro!!!", JOptionPane.INFORMATION_MESSAGE,
-                    new ImageIcon("C:\\Users\\PremierSoft\\IdeaProjects\\Campeonatos_Futebol\\src\\View\\Cadastro.gif"));
-            this.clearScreen();
+            if (ComboFuncionarios.getSelectedIndex() >= 0) {
+
+                Funcionario funcionario = (Funcionario) ComboFuncionarios.getSelectedItem();
+                assert funcionario != null;
+
+                funcionario.setNome_funcionario(TxtNome.getText());
+                sb.update(funcionario);
+
+                JOptionPane.showMessageDialog(rootPane, funcionario.getNome_funcionario());
+                JOptionPane.showMessageDialog(rootPane, funcionario.getCod_funcionario());
+
+                JOptionPane.showMessageDialog(
+                        null, "Cadastrado com sucesso",
+                        "Cadastro!!!", JOptionPane.INFORMATION_MESSAGE,
+                        new ImageIcon("C:\\Users\\PremierSoft\\IdeaProjects\\Campeonatos_Futebol\\src\\View\\Cadastro.gif"));
+
+                this.clearScreen();
+            }
+
         } catch (SQLException ex) {
             Logger.getLogger(FuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
+
         }
     }//GEN-LAST:event_JbtnSalvarMouseClicked
 
@@ -362,6 +389,7 @@ public class ConsultaDadosView extends javax.swing.JFrame {
 
     private void formWindowActivated(WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         try {
+            this.edit();
             utils.atualizarFuncionario(ComboFuncionarios, sb);
         } catch (SQLException ex) {
             Logger.getLogger(LancamentoView.class.getName()).log(Level.SEVERE, null, ex);
@@ -371,7 +399,7 @@ public class ConsultaDadosView extends javax.swing.JFrame {
 
     private void ComboInicioItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboInicioItemStateChanged
         this.clearTotal();
-                TxtNome.setVisible(false);
+        TxtNome.setVisible(false);
 
         if (ComboInicio.getItemCount() <= 0) {
             return;
@@ -428,6 +456,42 @@ public class ConsultaDadosView extends javax.swing.JFrame {
     }//GEN-LAST:event_ComboAnoItemStateChanged
 
     private void RbEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RbEditarMouseClicked
+        this.edit();
+    }//GEN-LAST:event_RbEditarMouseClicked
+
+    private void JbExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JbExcluirMouseClicked
+        if (ComboFuncionarios.getItemCount() <= 0) {
+            return;
+        }
+        if (ComboFuncionarios.getSelectedIndex() < 0) {
+            return;
+        }
+        Funcionario funcionario = (Funcionario) ComboFuncionarios.getSelectedItem();
+        assert funcionario != null;
+        TxtNome.setText(funcionario.getNome_funcionario());
+        int del = JOptionPane.showConfirmDialog(null, "Você deseja exlcuir o registro "
+                + funcionario + "?", "Excluir...",
+                JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE,
+                new ImageIcon("C:\\Users\\PremierSoft\\Documents\\NetBeansProjects\\Projeto-Allan\\src\\images\\39-trash-solid.gif"));
+
+        if (del == JOptionPane.YES_OPTION) {
+            try {
+                sb.delete(funcionario);
+                utils.atualizarFuncionario(ComboFuncionarios, sb);
+                this.clearScreen();
+                JOptionPane.showMessageDialog(null, "Excluido com sucesso!!!",
+                        "Cadastro!!!", JOptionPane.INFORMATION_MESSAGE,
+                        new ImageIcon("C:\\Users\\PremierSoft\\Documents\\NetBeansProjects\\Projeto-Allan\\src\\images\\18-autorenew-outline.gif"));
+            } catch (SQLException ex) {
+                Logger.getLogger(ConsultaDadosView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }else if (del == JOptionPane.NO_OPTION) {
+            this.clearScreen();
+        }
+    }//GEN-LAST:event_JbExcluirMouseClicked
+
+    private void edit() {
         if (RbEditar.isSelected()) {
             ComboInicio.setEnabled(false);
             ComboFim.setEnabled(false);
@@ -436,8 +500,17 @@ public class ConsultaDadosView extends javax.swing.JFrame {
             txtTotal.setEnabled(false);
             TxtNome.setEditable(true);
             TxtNome.setEnabled(true);
+        } else if (!RbEditar.isSelected()) {
+            ComboInicio.setEnabled(true);
+            ComboFuncionarios.setSelectedIndex(-1);
+            ComboFim.setEnabled(true);
+            ComboAno.setEnabled(true);
+            TxtHoras.setEnabled(true);
+            txtTotal.setEnabled(true);
+            TxtNome.setEditable(false);
+            TxtNome.setEnabled(false);
         }
-    }//GEN-LAST:event_RbEditarMouseClicked
+    }
 
     /**
      * @param args the command line arguments
@@ -472,13 +545,24 @@ public class ConsultaDadosView extends javax.swing.JFrame {
     private javax.swing.JComboBox<Lancamento> ComboFim;
     private javax.swing.JComboBox<Funcionario> ComboFuncionarios;
     private javax.swing.JComboBox<Lancamento> ComboInicio;
+    private javax.swing.JButton JbExcluir;
     private javax.swing.JButton JbtnLimpar;
     private javax.swing.JButton JbtnSalvar;
+    private javax.swing.JLabel LblTotal;
     private javax.swing.JRadioButton RbEditar;
     private javax.swing.JTextField TxtCPF;
     private javax.swing.JTextField TxtHoras;
     private javax.swing.JTextField TxtNome;
     private javax.swing.JTextField TxtRG;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblAno;
+    private javax.swing.JLabel lblFuncionario;
+    private javax.swing.JLabel lblHoras;
+    private javax.swing.JLabel lblMes;
+    private javax.swing.JLabel lblMes1;
     private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }
