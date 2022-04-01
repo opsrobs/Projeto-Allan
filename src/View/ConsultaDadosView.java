@@ -489,7 +489,7 @@ public class ConsultaDadosView extends javax.swing.JFrame {
     }//GEN-LAST:event_JbExcluirMouseClicked
 
     private void ComboInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboInicioActionPerformed
-        
+
     }//GEN-LAST:event_ComboInicioActionPerformed
 
     private void edit() {
