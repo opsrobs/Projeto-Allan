@@ -127,7 +127,7 @@ public class SearchTable extends javax.swing.JFrame {
         if (ComboMes.getSelectedIndex() < 0) {
             return;
         }
-        Lancamento lancamento = (Lancamento) ComboMes.getSelectedItem();
+        String lancamento = (String) ComboMes.getSelectedItem();
         assert lancamento != null;
     }//GEN-LAST:event_ComboMesItemStateChanged
 
@@ -172,7 +172,7 @@ public class SearchTable extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<Lancamento> ComboMes;
+    private javax.swing.JComboBox<String> ComboMes;
     private javax.swing.JTable JtTabelaSalario;
     // End of variables declaration//GEN-END:variables
 }
