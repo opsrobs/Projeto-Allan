@@ -54,16 +54,16 @@ public class Utils {
         j.setSelectedIndex(-1);
     }
     
-    public void mesFuncionario(JComboBox<Lancamento> j, ServicoBancoLancamento sbl, String order) throws SQLException {
+    public void mesFuncionario(JComboBox<String> j, ServicoBancoLancamento sbl, String order) throws SQLException {
         this.sbl = sbl;
         if (j.getItemCount() > 0) {
             j.removeAllItems();
         }
 
-        ArrayList<Lancamento> lista = sbl.getMesBy(order);
+        ArrayList<String> lista = sbl.getMesBy(order);
 
-        for (Lancamento lancamento : lista) {
-            j.addItem(lancamento);
+        for (String mes : lista) {
+            j.addItem(mes);
         }
         j.setSelectedIndex(-1);
     }
