@@ -88,9 +88,28 @@ public class Utils {
         };
     }
 
+        public int reverseMonth (String numMes) {
+        String value;
+        value = numMes.replace("0", "");
+        return switch (value) {
+            case "Janeiro" -> 1;
+            case "Fevereiro" -> 2;
+            case "Março" -> 3;
+            case "Abri" -> 4;
+            case "Maio" -> 5;
+            case "Junho" -> 6;
+            case "Julho" -> 7;
+            case "Agosto" -> 8;
+            case "Setembro" ->9;
+            case "Outubro" -> 10;
+            case "Novembro" -> 11;
+            case "Dezembro" -> 12;
+            default -> 0;
+        };
+    }
+        
     public String formatTot(float tot) {
         DecimalFormat df = new DecimalFormat("###,###,##0.00");
-        System.out.println(df.format(tot));
         return df.format(tot);
     }
 
