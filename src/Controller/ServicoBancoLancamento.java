@@ -118,6 +118,21 @@ public class ServicoBancoLancamento {
 
         return lista;
     }
+    
+        public ArrayList<String> getMesBy(String order) throws SQLException {
+        ArrayList<String> dados = new ArrayList<>();
+        Utils utils = new Utils();
+        try ( Statement st = conexao.getConexao().createStatement();
+                ResultSet rs = st.executeQuery("SELECT * FROM controle_horas.gettabelabyquery"
+                + " group by " + order + ";")) {
+
+            while (rs.next()) {
+                dados.add(utils.mes(rs.getString(3)));
+            }
+        }
+        return dados;
+
+    }
 
     public int getHorasByPeriodo(int periodoIni, int periodoFim, int codFun, int ano) throws SQLException {
         int lista = 0;
@@ -148,18 +163,7 @@ public class ServicoBancoLancamento {
         }
     }
 
-    public ArrayList<Lancamento> getMesBy(String order) throws SQLException {
-        ArrayList<Lancamento> dados = new ArrayList<>();
-        try ( Statement st = conexao.getConexao().createStatement();
-                ResultSet rs = st.executeQuery("SELECT * FROM controle_horas.gettabelabyquery"
-                        + " group by "+order+";")) {
 
-            while (rs.next()) {
-                dados.add(new Lancamento(rs.getInt("mes")));
-            }
-        }
-        return dados;
-    }
 
     public ArrayList<String[]> getTabelaByQuery() throws SQLException {
         ArrayList<String[]> dados = new ArrayList<>();
