@@ -20,7 +20,7 @@ public class Utils {
     ServicoBancoFuncionario servicoBancoFuncionario = new ServicoBancoFuncionario();
     ServicoBancoLancamento sbl = new ServicoBancoLancamento();
 
-    public void visibleButtonTrue(JRadioButton edit, JTextField name, String func){
+    public void visibleButtonTrue(JRadioButton edit, JTextField name, String func) {
         if (edit.isSelected()) {
             name.setVisible(true);
             name.setText(func);
@@ -53,7 +53,21 @@ public class Utils {
         }
         j.setSelectedIndex(-1);
     }
-    
+
+    public void mesFuncionarioBy(JComboBox<String> j, ServicoBancoLancamento sbl, int cod) throws SQLException {
+        this.sbl = sbl;
+        if (j.getItemCount() > 0) {
+            j.removeAllItems();
+        }
+
+        ArrayList<String> lista = sbl.getMesByFilter(cod);
+
+        for (String mes : lista) {
+            j.addItem(mes);
+        }
+        j.setSelectedIndex(-1);
+    }
+
     public void mesFuncionario(JComboBox<String> j, ServicoBancoLancamento sbl, String order) throws SQLException {
         this.sbl = sbl;
         if (j.getItemCount() > 0) {
@@ -72,42 +86,68 @@ public class Utils {
         String value;
         value = numMes.replace("0", "");
         return switch (value) {
-            case "1" -> "Janeiro";
-            case "2" -> "Fevereiro";
-            case "3" -> "Março";
-            case "4" -> "Abri";
-            case "5" -> "Maio";
-            case "6" -> "Junho";
-            case "7" -> "Julho";
-            case "8" -> "Agosto";
-            case "9" -> "Setembro";
-            case "10" -> "Outubro";
-            case "11" -> "Novembro";
-            case "12" -> "Dezembro";
-            default -> "Mês invalido!!!";
+            case "1" ->
+                "Janeiro";
+            case "2" ->
+                "Fevereiro";
+            case "3" ->
+                "Março";
+            case "4" ->
+                "Abri";
+            case "5" ->
+                "Maio";
+            case "6" ->
+                "Junho";
+            case "7" ->
+                "Julho";
+            case "8" ->
+                "Agosto";
+            case "9" ->
+                "Setembro";
+            case "10" ->
+                "Outubro";
+            case "11" ->
+                "Novembro";
+            case "12" ->
+                "Dezembro";
+            default ->
+                "Mês invalido!!!";
         };
     }
 
-        public int reverseMonth (String numMes) {
+    public int reverseMonth(String numMes) {
         String value;
         value = numMes.replace("0", "");
         return switch (value) {
-            case "Janeiro" -> 1;
-            case "Fevereiro" -> 2;
-            case "Março" -> 3;
-            case "Abri" -> 4;
-            case "Maio" -> 5;
-            case "Junho" -> 6;
-            case "Julho" -> 7;
-            case "Agosto" -> 8;
-            case "Setembro" ->9;
-            case "Outubro" -> 10;
-            case "Novembro" -> 11;
-            case "Dezembro" -> 12;
-            default -> 0;
+            case "Janeiro" ->
+                1;
+            case "Fevereiro" ->
+                2;
+            case "Março" ->
+                3;
+            case "Abri" ->
+                4;
+            case "Maio" ->
+                5;
+            case "Junho" ->
+                6;
+            case "Julho" ->
+                7;
+            case "Agosto" ->
+                8;
+            case "Setembro" ->
+                9;
+            case "Outubro" ->
+                10;
+            case "Novembro" ->
+                11;
+            case "Dezembro" ->
+                12;
+            default ->
+                0;
         };
     }
-        
+
     public String formatTot(float tot) {
         DecimalFormat df = new DecimalFormat("###,###,##0.00");
         return df.format(tot);
@@ -134,7 +174,9 @@ public class Utils {
 
         ArrayList<Lancamento> lista = sbl.getAnoBy();
 
-        for (Lancamento lancamento : lista) j.addItem(lancamento.getAno());
+        for (Lancamento lancamento : lista) {
+            j.addItem(lancamento.getAno());
+        }
         j.setSelectedIndex(-1);
     }
 
