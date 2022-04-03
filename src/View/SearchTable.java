@@ -7,10 +7,8 @@ package View;
 import Controller.ServicoBancoLancamento;
 import Controller.SimpleTableModel;
 import Controller.Utils;
-import Models.Lancamento;
 
 import java.awt.*;
-import java.awt.event.ItemEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -24,22 +22,69 @@ import javax.swing.*;
  */
 public class SearchTable extends javax.swing.JFrame {
 
-    private final Lancamento lancamento = new Lancamento();
+    private final Utils utils = new Utils();
     private final ServicoBancoLancamento sbl = new ServicoBancoLancamento();
-    Utils utils = new Utils();
 
+    /**
+     * Creates new form SearchTable
+     */
     public SearchTable() {
-        this.JFrameCenterPositionTest();
         initComponents();
+        JFrameCenterPositionTest();
     }
-
-    private void JFrameCenterPositionTest() {
+    
+        private void JFrameCenterPositionTest() {
         setTitle("JFrameCenter Position");
         add(new JLabel("", SwingConstants.CENTER), BorderLayout.CENTER);
-        setSize(670, 530);
+        setSize(800, 530);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null); // this method display the JFrame to center position of a screen
         setVisible(true);
+    }
+
+    private void carregarTabelaByMes(int mes) {
+        try {
+            ArrayList<String[]> dados = sbl.getTabelaByMes(mes);
+            String[] colunas = new String[]{
+                "Nome",
+                "Horas Trabalhadas",
+                "Mês",
+                "Valor por \nhora",
+                "Total a receber",
+                "Status"
+            };
+            SimpleTableModel table = new SimpleTableModel(dados, colunas);
+            JtTabelaSalario.setModel(table);
+            JtTabelaSalario.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+        } catch (SQLException ignored) {
+        }
+    }
+
+    public void screenTable(int mes) {
+        System.err.println(ComboMes.getSelectedIndex());
+        if (Objects.requireNonNull(ComboMes.getSelectedItem()).toString().equals("")) {
+            this.carregarTabela();
+        } else {
+            this.carregarTabelaByMes(mes);
+        }
+    }
+
+    private void carregarTabela() {
+        try {
+            ArrayList<String[]> dados = sbl.getTabelaByQuery();
+            String[] colunas = new String[]{
+                "Nome",
+                "Horas Trabalhadas",
+                "Mês",
+                "Valor por \nhora",
+                "Total a receber",
+                "Status"
+            };
+            SimpleTableModel table = new SimpleTableModel(dados, colunas);
+            JtTabelaSalario.setModel(table);
+            JtTabelaSalario.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+        } catch (SQLException ignored) {
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -86,7 +131,7 @@ public class SearchTable extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(lblAno)
@@ -108,21 +153,11 @@ public class SearchTable extends javax.swing.JFrame {
                     .addComponent(btnRefresh))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        try {
-            utils.mesFuncionario(ComboMes, sbl, "mes");
-        } catch (SQLException ex) {
-            Logger.getLogger(SearchTable.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        this.carregarTabela();
-
-    }//GEN-LAST:event_formWindowActivated
 
     private void ComboMesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboMesItemStateChanged
         if (ComboMes.getItemCount() <= 0) {
@@ -140,51 +175,18 @@ public class SearchTable extends javax.swing.JFrame {
         this.carregarTabela();
     }//GEN-LAST:event_BtnRefreshMouseClicked
 
-    private void screenTable(int mes) {
-            System.err.println(ComboMes.getSelectedIndex());
-        if (Objects.requireNonNull(ComboMes.getSelectedItem()).toString().equals("")) {
-            this.carregarTabela();
-        } else {
-            this.carregarTabelaByMes(mes);
-        }
-    }
-
-    private void carregarTabela() {
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         try {
-            ArrayList<String[]> dados = sbl.getTabelaByQuery();
-            String[] colunas = new String[]{
-                "Nome",
-                "Horas Trabalhadas",
-                "Mês",
-                "Valor por \nhora",
-                "Total a receber",
-                "Status"
-            };
-            SimpleTableModel table = new SimpleTableModel(dados, colunas);
-            JtTabelaSalario.setModel(table);
-            JtTabelaSalario.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-        } catch (SQLException ignored) {
+            utils.mesFuncionario(ComboMes, sbl, "mes");
+        } catch (SQLException ex) {
+            Logger.getLogger(SearchTableModify.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+        this.carregarTabela();
+    }//GEN-LAST:event_formWindowActivated
 
-    private void carregarTabelaByMes(int mes) {
-        try {
-            ArrayList<String[]> dados = sbl.getTabelaByMes(mes);
-            String[] colunas = new String[]{
-                "Nome",
-                "Horas Trabalhadas",
-                "Mês",
-                "Valor por \nhora",
-                "Total a receber",
-                "Status"
-            };
-            SimpleTableModel table = new SimpleTableModel(dados, colunas);
-            JtTabelaSalario.setModel(table);
-            JtTabelaSalario.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-        } catch (SQLException ignored) {
-        }
-    }
-
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
