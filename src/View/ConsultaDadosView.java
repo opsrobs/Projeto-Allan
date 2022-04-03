@@ -309,6 +309,9 @@ public class ConsultaDadosView extends javax.swing.JFrame {
         ComboInicio.setSelectedIndex(-1);
         ComboFim.setSelectedIndex(-1);
         txtTotal.setText("");
+        TxtNome.setText("");
+        TxtNome.setVisible(false);
+        RbEditar.setSelected(false);
         JbtnSalvar.setEnabled(false);
         JbtnSalvar.setVisible(false);
 
