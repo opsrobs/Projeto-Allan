@@ -85,6 +85,20 @@ public class ServicoBancoLancamento {
         return value;
     }
 
+    public ArrayList<String> getMesByFilter(int cod) throws SQLException {
+        ArrayList<String> dados = new ArrayList<>();
+        Utils utils = new Utils();
+        try ( Statement st = conexao.getConexao().createStatement();
+                ResultSet rs = st.executeQuery("SELECT * FROM controle_horas.getquerybyano WHERE cod_funcionaio = "+cod+" group by mes")) {
+
+            while (rs.next()) {
+                dados.add(utils.mes(rs.getString(5)));
+            }
+        }
+        return dados;
+
+    }
+
     public ArrayList<Lancamento> getDadosBy(int cod, String order) throws SQLException {
         ArrayList<Lancamento> lista = new ArrayList<>();
         try ( Statement st = conexao.getConexao().createStatement();  ResultSet rs = st.executeQuery(
@@ -152,10 +166,9 @@ public class ServicoBancoLancamento {
 
     public int getHorasByFuncionario(int codFun) throws SQLException {
         int lista = 0;
-        try ( Statement st = conexao.getConexao().createStatement();
-                ResultSet rs = st.executeQuery("select sum(hora_trabalhada)"
-                        + " from controle_horas.lancamento where funcionario_cod_funcionaio ="
-                        + " " + codFun + ";")) {
+        try ( Statement st = conexao.getConexao().createStatement();  ResultSet rs = st.executeQuery("select sum(hora_trabalhada)"
+                + " from controle_horas.lancamento where funcionario_cod_funcionaio ="
+                + " " + codFun + ";")) {
 
             while (rs.next()) {
                 lista = rs.getInt(1);
@@ -182,13 +195,12 @@ public class ServicoBancoLancamento {
         }
         return dados;
     }
-    
+
     public ArrayList<String[]> getTabelaByMes(int order) throws SQLException {
         ArrayList<String[]> dados = new ArrayList<>();
         Utils utils = new Utils();
-        try ( Statement st = conexao.getConexao().createStatement();
-                ResultSet rs = st.executeQuery("SELECT * FROM controle_horas.gettabelabyquery "
-                        + "where mes = "+order+";")) {
+        try ( Statement st = conexao.getConexao().createStatement();  ResultSet rs = st.executeQuery("SELECT * FROM controle_horas.gettabelabyquery "
+                + "where mes = " + order + ";")) {
 
             while (rs.next()) {
                 dados.add(new String[]{
