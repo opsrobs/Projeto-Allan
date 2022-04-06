@@ -52,13 +52,19 @@ public class FuncionarioView extends javax.swing.JFrame {
         JbtnSalvar.setVisible(false);
     }
 
+    private void colorMask() {
+        if (MaskCpf.isFocusable()) {
+            MaskCpf.setSelectionColor(Color.red);
+        }
+    }
+
     private void verifyCpf() {
 
         if (utils.verificaCpf(MaskCpf.getText())) {
             requiredCpf.setVisible(false);
         } else {
             requiredCpf.setIcon(icon);
-
+            this.colorMask();
             return;
         }
         requiredCpf.setVisible(false);
@@ -341,7 +347,7 @@ public class FuncionarioView extends javax.swing.JFrame {
     }//GEN-LAST:event_JbtnSalvarMouseClicked
 
     private void formWindowActivated() {//GEN-FIRST:event_formWindowActivated
-//        this.clearScreen();
+        this.colorMask();
     }//GEN-LAST:event_formWindowActivated
 
     private void JbtnLimparMouseClicked() {//GEN-FIRST:event_JbtnLimparMouseClicked
@@ -370,7 +376,6 @@ public class FuncionarioView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtStatusFocusGained
 
-    
     /**
      * @param args the command line arguments
      */
