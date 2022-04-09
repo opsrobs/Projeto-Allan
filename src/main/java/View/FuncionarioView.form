@@ -61,22 +61,8 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="LblData_Nasc" min="-2" pref="150" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="MaskData" min="-2" pref="68" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="LblRg" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                      <Component id="TxtRg" max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="LblName" min="-2" pref="81" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
-                      <Component id="TxtName" min="-2" pref="313" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="LblGenero" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="LblCpf" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -86,7 +72,7 @@
                           <Component id="TxtGener" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
                           <Component id="MaskCpf" min="-2" pref="114" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="LblStatus" min="-2" max="-2" attributes="0"/>
@@ -98,10 +84,26 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="TxtValor" min="-2" pref="70" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="LblRg" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="LblData_Nasc" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                          <Component id="LblName" alignment="0" min="-2" pref="81" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="MaskData" min="-2" pref="68" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="TxtRg" min="-2" pref="133" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="TxtName" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
               <Component id="requiredCpf" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
           </Group>
@@ -238,7 +240,6 @@
       </Properties>
       <Events>
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="MaskCpfFocusLost"/>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MaskCpfMouseClicked"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="JbtnSalvar">
@@ -291,9 +292,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="TxtStatus">
-      <Events>
-        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="TxtStatusFocusGained"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

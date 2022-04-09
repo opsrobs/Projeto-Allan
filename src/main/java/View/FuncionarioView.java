@@ -1,16 +1,24 @@
-package View;
+package main.java.View;
 
 import Controller.ServicoBancoFuncionario;
+import Controller.ServicoBancoLancamento;
 import Controller.Utils;
 import Models.Funcionario;
+import Models.Lancamento;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.MouseEvent;
+import java.awt.event.WindowEvent;
 import java.sql.SQLException;
-import java.text.ParseException;
+import java.text.DecimalFormat;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import static java.awt.Font.*;
+import java.text.ParseException;
 
 /**
  *
@@ -138,11 +146,6 @@ public class FuncionarioView extends javax.swing.JFrame {
                 MaskCpfFocusLost(evt);
             }
         });
-        MaskCpf.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MaskCpfMouseClicked(evt);
-            }
-        });
 
         JbtnSalvar.setText("SALVAR INFORMAÇÕES");
         JbtnSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -158,7 +161,6 @@ public class FuncionarioView extends javax.swing.JFrame {
             }
         });
 
-        requiredCpf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/55-error-outline.gif"))); // NOI18N
 
         LblData_Nasc.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         LblData_Nasc.setText("Data nascimento:");
@@ -172,12 +174,6 @@ public class FuncionarioView extends javax.swing.JFrame {
 
         LblStatus.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         LblStatus.setText("Status:");
-
-        TxtStatus.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                TxtStatusFocusGained(evt);
-            }
-        });
 
         jMenu1.setText("Menu de Sistemas");
         jMenuBar1.add(jMenu1);
@@ -205,20 +201,8 @@ public class FuncionarioView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(LblData_Nasc, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(MaskData, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(LblRg)
-                        .addGap(21, 21, 21)
-                        .addComponent(TxtRg))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(LblName, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(83, 83, 83)
-                        .addComponent(TxtName, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LblGenero)
                             .addComponent(LblCpf))
@@ -226,7 +210,7 @@ public class FuncionarioView extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TxtGener, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(MaskCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(LblStatus)
@@ -235,8 +219,20 @@ public class FuncionarioView extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(LblValor)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(TxtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(LblRg)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LblData_Nasc, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LblName, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(MaskData, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(TxtRg, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TxtName))))
+                .addGap(200, 200, 200)
                 .addComponent(requiredCpf)
                 .addGap(85, 85, 85))
         );
@@ -286,7 +282,20 @@ public class FuncionarioView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JbtnSalvarMouseClicked() {//GEN-FIRST:event_JbtnSalvarMouseClicked
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        this.colorMask();
+    }//GEN-LAST:event_formWindowActivated
+
+    private void TxtValorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TxtValorFocusGained
+        JbtnSalvar.setEnabled(true);
+        JbtnSalvar.setVisible(true);
+    }//GEN-LAST:event_TxtValorFocusGained
+
+    private void JbtnLimparMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JbtnLimparMouseClicked
+        this.clearScreen();
+    }//GEN-LAST:event_JbtnLimparMouseClicked
+
+    private void JbtnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JbtnSalvarMouseClicked
         if (TxtName.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Informe um nome!");
             TxtName.requestFocus();
@@ -343,38 +352,14 @@ public class FuncionarioView extends javax.swing.JFrame {
         } catch (SQLException | ParseException ex) {
             Logger.getLogger(FuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }//GEN-LAST:event_JbtnSalvarMouseClicked
 
-    private void formWindowActivated() {//GEN-FIRST:event_formWindowActivated
-        this.colorMask();
-    }//GEN-LAST:event_formWindowActivated
-
-    private void JbtnLimparMouseClicked() {//GEN-FIRST:event_JbtnLimparMouseClicked
-        this.clearScreen();
-    }//GEN-LAST:event_JbtnLimparMouseClicked
-
-    private void MaskCpfFocusLost() {//GEN-FIRST:event_MaskCpfFocusLost
+    private void MaskCpfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MaskCpfFocusLost
         JbtnLimpar.setEnabled(true);
         JbtnSalvar.setEnabled(false);
         JbtnSalvar.setVisible(false);
         this.verifyCpf();
-
     }//GEN-LAST:event_MaskCpfFocusLost
-
-    private void TxtValorFocusGained() {//GEN-FIRST:event_TxtValorFocusGained
-        JbtnSalvar.setEnabled(true);
-        JbtnSalvar.setVisible(true);
-
-    }//GEN-LAST:event_TxtValorFocusGained
-
-    private void MaskCpfMouseClicked() {//GEN-FIRST:event_MaskCpfMouseClicked
-        this.verifyCpf();
-    }//GEN-LAST:event_MaskCpfMouseClicked
-
-    private void TxtStatusFocusGained() {//GEN-FIRST:event_TxtStatusFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtStatusFocusGained
 
     /**
      * @param args the command line arguments

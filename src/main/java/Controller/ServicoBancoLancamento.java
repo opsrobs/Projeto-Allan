@@ -140,7 +140,7 @@ public class ServicoBancoLancamento {
                 + " group by " + order + ";")) {
 
             while (rs.next()) {
-                dados.add(utils.mes(rs.getString(3)));
+                dados.add(utils.mes(rs.getString(4)));
             }
         }
         return dados;
@@ -187,10 +187,10 @@ public class ServicoBancoLancamento {
                 dados.add(new String[]{
                     rs.getString(1),
                     rs.getString(2),
-                    utils.mes(rs.getString(3)),
-                    rs.getString(4),
-                    utils.formatTot(Float.parseFloat(rs.getString(5))),
-                    rs.getString(6)});
+                    utils.mes(rs.getString(4)),
+                    rs.getString(5),
+                    utils.formatTot(Float.parseFloat(rs.getString(6))),
+                    rs.getString(7)});
             }
         }
         return dados;
@@ -206,10 +206,10 @@ public class ServicoBancoLancamento {
                 dados.add(new String[]{
                     rs.getString(1),
                     rs.getString(2),
-                    utils.mes(rs.getString(3)),
-                    rs.getString(4),
-                    utils.formatTot(Float.parseFloat(rs.getString(5))),
-                    rs.getString(6)});
+                    utils.mes(rs.getString(4)),
+                    rs.getString(5),
+                    utils.formatTot(Float.parseFloat(rs.getString(6))),
+                    rs.getString(7)});
             }
         }
         return dados;

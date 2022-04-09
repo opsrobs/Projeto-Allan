@@ -1,4 +1,4 @@
-package View;
+package main.java.View;
 
 import Controller.ServicoBancoFuncionario;
 import Controller.ServicoBancoLancamento;
