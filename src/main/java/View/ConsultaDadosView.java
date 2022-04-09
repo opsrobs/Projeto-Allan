@@ -32,7 +32,7 @@ public class ConsultaDadosView extends javax.swing.JFrame {
     Utils utils = new Utils();
 
     public void JFrameCenterPositionTest() {
-        setTitle("JFrameCenter Position");
+        setTitle("Consultar Funcionarios!!!");
         add(new JLabel("JFrame set to center of the screen", SwingConstants.CENTER), BorderLayout.CENTER);
         setSize(580, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,27 +48,27 @@ public class ConsultaDadosView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JSeparator jSeparator1 = new JSeparator();
-        JLabel jLabel1 = new JLabel();
-        JLabel lblFuncionario = new JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
+        lblFuncionario = new javax.swing.JLabel();
         ComboFuncionarios = new javax.swing.JComboBox<>();
-        JLabel jLabel2 = new JLabel();
+        jLabel2 = new javax.swing.JLabel();
         TxtRG = new javax.swing.JTextField();
-        JLabel jLabel3 = new JLabel();
+        jLabel3 = new javax.swing.JLabel();
         TxtCPF = new javax.swing.JTextField();
         JbtnSalvar = new javax.swing.JButton();
         JbtnLimpar = new javax.swing.JButton();
-        JLabel lblMes = new JLabel();
-        JLabel lblHoras = new JLabel();
-        JLabel lblAno = new JLabel();
+        lblMes = new javax.swing.JLabel();
+        lblHoras = new javax.swing.JLabel();
+        lblAno = new javax.swing.JLabel();
         TxtHoras = new javax.swing.JTextField();
-        JLabel lblMes1 = new JLabel();
+        lblMes1 = new javax.swing.JLabel();
         ComboAno = new javax.swing.JComboBox<>();
-        JLabel lblTotal = new JLabel();
+        LblTotal = new javax.swing.JLabel();
         txtTotal = new javax.swing.JTextField();
         RbEditar = new javax.swing.JRadioButton();
         TxtNome = new javax.swing.JTextField();
-        JButton jbExcluir = new JButton();
+        JbExcluir = new javax.swing.JButton();
         ComboMesInicio = new javax.swing.JComboBox<>();
         ComboMesFim = new javax.swing.JComboBox<>();
 
@@ -80,34 +80,34 @@ public class ConsultaDadosView extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Dialog", ITALIC, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 2, 24)); // NOI18N
         jLabel1.setText("CONSULTA DE FUNCIONARIOS!!!");
 
-        lblFuncionario.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+        lblFuncionario.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         lblFuncionario.setText("Funcionario");
 
-        ComboFuncionarios.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+        ComboFuncionarios.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         ComboFuncionarios.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 ComboFuncionariosItemStateChanged(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         jLabel2.setText("CPF:");
 
         TxtRG.setEditable(false);
-        TxtRG.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+        TxtRG.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         TxtRG.setEnabled(false);
 
-        jLabel3.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         jLabel3.setText("RG:");
 
         TxtCPF.setEditable(false);
-        TxtCPF.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+        TxtCPF.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         TxtCPF.setEnabled(false);
 
-        JbtnSalvar.setFont(new java.awt.Font("Dialog", PLAIN, 18)); // NOI18N
+        JbtnSalvar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         JbtnSalvar.setText("SALVAR INFORMAÇÕES");
         JbtnSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -115,7 +115,7 @@ public class ConsultaDadosView extends javax.swing.JFrame {
             }
         });
 
-        JbtnLimpar.setFont(new java.awt.Font("Dialog", PLAIN, 18)); // NOI18N
+        JbtnLimpar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         JbtnLimpar.setText("LIMPAR DADOS");
         JbtnLimpar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -123,32 +123,32 @@ public class ConsultaDadosView extends javax.swing.JFrame {
             }
         });
 
-        lblMes.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+        lblMes.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         lblMes.setText("Periodo inicial:");
 
-        lblHoras.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+        lblHoras.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         lblHoras.setText("Horas Trabalhadas:");
 
-        lblAno.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+        lblAno.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         lblAno.setText("Ano:");
 
-        TxtHoras.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+        TxtHoras.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
 
-        lblMes1.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+        lblMes1.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         lblMes1.setText("Final do Periodo");
 
-        ComboAno.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+        ComboAno.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         ComboAno.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 ComboAnoItemStateChanged(evt);
             }
         });
 
-        lblTotal.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
-        lblTotal.setText("Total a Receber:");
+        LblTotal.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        LblTotal.setText("Total a Receber:");
 
         txtTotal.setEditable(false);
-        txtTotal.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+        txtTotal.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
 
         RbEditar.setText("EDITAR");
         RbEditar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -158,24 +158,24 @@ public class ConsultaDadosView extends javax.swing.JFrame {
         });
 
         TxtNome.setEditable(false);
-        TxtNome.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+        TxtNome.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
 
-        jbExcluir.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/main/java/images/delete.png")))); // NOI18N
-        jbExcluir.setBorder(null);
-        jbExcluir.addMouseListener(new java.awt.event.MouseAdapter() {
+        JbExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/java/images/delete.png"))); // NOI18N
+        JbExcluir.setBorder(null);
+        JbExcluir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JbExcluirMouseClicked(evt);
             }
         });
 
-        ComboMesInicio.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+        ComboMesInicio.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         ComboMesInicio.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 ComboMesInicioItemStateChanged(evt);
             }
         });
 
-        ComboMesFim.setFont(new java.awt.Font("Dialog", PLAIN, 15)); // NOI18N
+        ComboMesFim.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         ComboMesFim.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 ComboMesFimItemStateChanged(evt);
@@ -204,11 +204,11 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(JbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(JbtnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblTotal)
+                                        .addComponent(LblTotal)
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
@@ -290,14 +290,14 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                         .addComponent(lblHoras))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(TxtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblTotal)
+                        .addComponent(LblTotal)
                         .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(JbtnSalvar)
                         .addComponent(JbtnLimpar))
-                    .addComponent(jbExcluir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JbExcluir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
 
@@ -549,13 +549,24 @@ public class ConsultaDadosView extends javax.swing.JFrame {
     private javax.swing.JComboBox<Funcionario> ComboFuncionarios;
     private javax.swing.JComboBox<String> ComboMesFim;
     private javax.swing.JComboBox<String> ComboMesInicio;
+    private javax.swing.JButton JbExcluir;
     private javax.swing.JButton JbtnLimpar;
     private javax.swing.JButton JbtnSalvar;
+    private javax.swing.JLabel LblTotal;
     private javax.swing.JRadioButton RbEditar;
     private javax.swing.JTextField TxtCPF;
     private javax.swing.JTextField TxtHoras;
     private javax.swing.JTextField TxtNome;
     private javax.swing.JTextField TxtRG;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblAno;
+    private javax.swing.JLabel lblFuncionario;
+    private javax.swing.JLabel lblHoras;
+    private javax.swing.JLabel lblMes;
+    private javax.swing.JLabel lblMes1;
     private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }
