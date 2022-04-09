@@ -73,56 +73,56 @@ public class FuncionarioView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        JLabel jLabel1 = new JLabel();
-        JLabel lblName = new JLabel();
-        JLabel lblCpf = new JLabel();
-        JLabel lblRg = new JLabel();
-        JLabel lblGenero = new JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        LblName = new javax.swing.JLabel();
+        LblCpf = new javax.swing.JLabel();
+        LblRg = new javax.swing.JLabel();
+        LblGenero = new javax.swing.JLabel();
         TxtName = new javax.swing.JTextField();
         TxtRg = new javax.swing.JTextField();
         TxtGener = new javax.swing.JTextField();
-        JLabel lblValor = new JLabel();
+        LblValor = new javax.swing.JLabel();
         TxtValor = new javax.swing.JTextField();
         MaskCpf = new javax.swing.JFormattedTextField();
         JbtnSalvar = new javax.swing.JButton();
         JbtnLimpar = new javax.swing.JButton();
         requiredCpf = new javax.swing.JLabel();
-        JLabel lblData_Nasc = new JLabel();
+        LblData_Nasc = new javax.swing.JLabel();
         MaskData = new javax.swing.JFormattedTextField();
-        JLabel lblStatus = new JLabel();
+        LblStatus = new javax.swing.JLabel();
         TxtStatus = new javax.swing.JTextField();
-        JMenuBar jMenuBar1 = new JMenuBar();
-        JMenu jMenu1 = new JMenu();
-        JMenu jMenu2 = new JMenu();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated();
+                formWindowActivated(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Dialog", Font.ITALIC, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 2, 24)); // NOI18N
         jLabel1.setText("CADASTRO DE FUNCIONARIOS!!!");
 
-        lblName.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
-        lblName.setText("Nome:");
+        LblName.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        LblName.setText("Nome:");
 
-        lblCpf.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
-        lblCpf.setText("CPF:");
+        LblCpf.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        LblCpf.setText("CPF:");
 
-        lblRg.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
-        lblRg.setText("RG:");
+        LblRg.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        LblRg.setText("RG:");
 
-        lblGenero.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
-        lblGenero.setText("Genero:");
+        LblGenero.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        LblGenero.setText("Genero:");
 
-        lblValor.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
-        lblValor.setText("Valor por hora:");
+        LblValor.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        LblValor.setText("Valor por hora:");
 
         TxtValor.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                TxtValorFocusGained();
+                TxtValorFocusGained(evt);
             }
         });
 
@@ -131,50 +131,51 @@ public class FuncionarioView extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        MaskCpf.setFont(new java.awt.Font("Dialog", Font.PLAIN, 14)); // NOI18N
+        MaskCpf.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         MaskCpf.setMinimumSize(new java.awt.Dimension(5, 18));
         MaskCpf.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                MaskCpfFocusLost();
+                MaskCpfFocusLost(evt);
             }
         });
         MaskCpf.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MaskCpfMouseClicked();
+                MaskCpfMouseClicked(evt);
             }
         });
 
         JbtnSalvar.setText("SALVAR INFORMAÇÕES");
         JbtnSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JbtnSalvarMouseClicked();
+                JbtnSalvarMouseClicked(evt);
             }
         });
 
         JbtnLimpar.setText("LIMPAR DADOS");
         JbtnLimpar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JbtnLimparMouseClicked();
+                JbtnLimparMouseClicked(evt);
             }
         });
 
+        requiredCpf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/55-error-outline.gif"))); // NOI18N
 
-        lblData_Nasc.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
-        lblData_Nasc.setText("Data nascimento:");
+        LblData_Nasc.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        LblData_Nasc.setText("Data nascimento:");
 
         try {
             MaskData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        MaskData.setFont(new java.awt.Font("Dialog", Font.PLAIN, 15)); // NOI18N
+        MaskData.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
 
-        lblStatus.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
-        lblStatus.setText("Status:");
+        LblStatus.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        LblStatus.setText("Status:");
 
         TxtStatus.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                TxtStatusFocusGained();
+                TxtStatusFocusGained(evt);
             }
         });
 
@@ -205,22 +206,22 @@ public class FuncionarioView extends javax.swing.JFrame {
                 .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(lblData_Nasc, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LblData_Nasc, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(MaskData, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblRg)
+                        .addComponent(LblRg)
                         .addGap(21, 21, 21)
                         .addComponent(TxtRg))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LblName, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(83, 83, 83)
                         .addComponent(TxtName, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblGenero)
-                            .addComponent(lblCpf))
+                            .addComponent(LblGenero)
+                            .addComponent(LblCpf))
                         .addGap(97, 97, 97)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(TxtGener, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -228,11 +229,11 @@ public class FuncionarioView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblStatus)
+                                .addComponent(LblStatus)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(TxtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblValor)
+                                .addComponent(LblValor)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(TxtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -246,33 +247,33 @@ public class FuncionarioView extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(73, 73, 73)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblName)
+                    .addComponent(LblName)
                     .addComponent(TxtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblData_Nasc)
+                    .addComponent(LblData_Nasc)
                     .addComponent(MaskData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblRg)
+                    .addComponent(LblRg)
                     .addComponent(TxtRg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCpf)
+                            .addComponent(LblCpf)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(MaskCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblStatus)
+                                .addComponent(LblStatus)
                                 .addComponent(TxtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(15, 15, 15)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblGenero)
+                                    .addComponent(LblGenero)
                                     .addComponent(TxtGener, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblValor)
+                                    .addComponent(LblValor)
                                     .addComponent(TxtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addComponent(requiredCpf))
                 .addGap(63, 63, 63)
@@ -405,6 +406,13 @@ public class FuncionarioView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JbtnLimpar;
     private javax.swing.JButton JbtnSalvar;
+    private javax.swing.JLabel LblCpf;
+    private javax.swing.JLabel LblData_Nasc;
+    private javax.swing.JLabel LblGenero;
+    private javax.swing.JLabel LblName;
+    private javax.swing.JLabel LblRg;
+    private javax.swing.JLabel LblStatus;
+    private javax.swing.JLabel LblValor;
     private javax.swing.JFormattedTextField MaskCpf;
     private javax.swing.JFormattedTextField MaskData;
     private javax.swing.JTextField TxtGener;
@@ -412,6 +420,10 @@ public class FuncionarioView extends javax.swing.JFrame {
     private javax.swing.JTextField TxtRg;
     private javax.swing.JTextField TxtStatus;
     private javax.swing.JTextField TxtValor;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel requiredCpf;
     // End of variables declaration//GEN-END:variables
 
