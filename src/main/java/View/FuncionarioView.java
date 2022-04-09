@@ -158,7 +158,6 @@ public class FuncionarioView extends javax.swing.JFrame {
             }
         });
 
-        requiredCpf.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/55-error-outline.gif")))); // NOI18N
 
         lblData_Nasc.setFont(new java.awt.Font("Dialog", Font.PLAIN, 18)); // NOI18N
         lblData_Nasc.setText("Data nascimento:");
