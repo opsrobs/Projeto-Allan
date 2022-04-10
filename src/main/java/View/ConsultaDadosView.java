@@ -28,6 +28,7 @@ public class ConsultaDadosView extends javax.swing.JFrame {
 
     ServicoBancoFuncionario sb = new ServicoBancoFuncionario();
     ServicoBancoLancamento sbl = new ServicoBancoLancamento();
+    Funcionario funcionario = new Funcionario();
     private int codFun = 0;
     Utils utils = new Utils();
 
@@ -78,12 +79,17 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                 formWindowActivated(evt);
             }
         });
+        getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 2, 24)); // NOI18N
         jLabel1.setText("CONSULTA DE FUNCIONARIOS!!!");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(101, 24, 393, 56);
 
         lblFuncionario.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         lblFuncionario.setText("Funcionario");
+        getContentPane().add(lblFuncionario);
+        lblFuncionario.setBounds(30, 198, 76, 20);
 
         ComboFuncionarios.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         ComboFuncionarios.addItemListener(new java.awt.event.ItemListener() {
@@ -91,20 +97,30 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                 ComboFuncionariosItemStateChanged(evt);
             }
         });
+        getContentPane().add(ComboFuncionarios);
+        ComboFuncionarios.setBounds(160, 188, 248, 30);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         jLabel2.setText("CPF:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(30, 232, 34, 20);
 
         TxtRG.setEditable(false);
         TxtRG.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         TxtRG.setEnabled(false);
+        getContentPane().add(TxtRG);
+        TxtRG.setBounds(370, 230, 132, 28);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         jLabel3.setText("RG:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(300, 230, 26, 20);
 
         TxtCPF.setEditable(false);
         TxtCPF.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         TxtCPF.setEnabled(false);
+        getContentPane().add(TxtCPF);
+        TxtCPF.setBounds(160, 224, 132, 28);
 
         JbtnSalvar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         JbtnSalvar.setText("SALVAR INFORMAÇÕES");
@@ -113,6 +129,8 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                 JbtnSalvarMouseClicked(evt);
             }
         });
+        getContentPane().add(JbtnSalvar);
+        JbtnSalvar.setBounds(30, 444, 201, 32);
 
         JbtnLimpar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         JbtnLimpar.setText("LIMPAR DADOS");
@@ -121,20 +139,33 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                 JbtnLimparMouseClicked(evt);
             }
         });
+        getContentPane().add(JbtnLimpar);
+        JbtnLimpar.setBounds(290, 444, 218, 32);
 
         lblMes.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         lblMes.setText("Periodo inicial:");
+        getContentPane().add(lblMes);
+        lblMes.setBounds(30, 312, 94, 20);
 
         lblHoras.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         lblHoras.setText("Horas Trabalhadas:");
+        getContentPane().add(lblHoras);
+        lblHoras.setBounds(30, 390, 128, 20);
 
         lblAno.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         lblAno.setText("Ano:");
+        getContentPane().add(lblAno);
+        lblAno.setBounds(30, 270, 29, 20);
 
+        TxtHoras.setEditable(false);
         TxtHoras.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(TxtHoras);
+        TxtHoras.setBounds(160, 390, 46, 28);
 
         lblMes1.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         lblMes1.setText("Final do Periodo");
+        getContentPane().add(lblMes1);
+        lblMes1.setBounds(30, 348, 105, 20);
 
         ComboAno.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         ComboAno.addItemListener(new java.awt.event.ItemListener() {
@@ -142,12 +173,18 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                 ComboAnoItemStateChanged(evt);
             }
         });
+        getContentPane().add(ComboAno);
+        ComboAno.setBounds(160, 260, 130, 30);
 
         LblTotal.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         LblTotal.setText("Total a Receber:");
+        getContentPane().add(LblTotal);
+        LblTotal.setBounds(240, 390, 108, 20);
 
         txtTotal.setEditable(false);
         txtTotal.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(txtTotal);
+        txtTotal.setBounds(390, 390, 105, 28);
 
         RbEditar.setText("EDITAR");
         RbEditar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -155,9 +192,13 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                 RbEditarMouseClicked(evt);
             }
         });
+        getContentPane().add(RbEditar);
+        RbEditar.setBounds(426, 190, 88, 28);
 
         TxtNome.setEditable(false);
         TxtNome.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(TxtNome);
+        TxtNome.setBounds(160, 160, 248, 28);
 
         JbExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/java/images/delete.png"))); // NOI18N
         JbExcluir.setBorder(null);
@@ -166,6 +207,8 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                 JbExcluirMouseClicked(evt);
             }
         });
+        getContentPane().add(JbExcluir);
+        JbExcluir.setBounds(243, 452, 35, 24);
 
         ComboMesInicio.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         ComboMesInicio.addItemListener(new java.awt.event.ItemListener() {
@@ -173,6 +216,8 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                 ComboMesInicioItemStateChanged(evt);
             }
         });
+        getContentPane().add(ComboMesInicio);
+        ComboMesInicio.setBounds(160, 307, 132, 30);
 
         ComboMesFim.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         ComboMesFim.addItemListener(new java.awt.event.ItemListener() {
@@ -180,125 +225,8 @@ public class ConsultaDadosView extends javax.swing.JFrame {
                 ComboMesFimItemStateChanged(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(JbtnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblHoras)
-                                        .addGap(1, 1, 1)
-                                        .addComponent(TxtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(JbExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(JbtnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(LblTotal)
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lblAno)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(ComboAno, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel2)
-                                            .addGap(96, 96, 96)
-                                            .addComponent(TxtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel3)
-                                                .addComponent(lblMes)
-                                                .addComponent(lblMes1))
-                                            .addGap(25, 25, 25)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(TxtRG, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                                                    .addComponent(ComboMesInicio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                .addComponent(ComboMesFim, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGap(222, 222, 222))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(TxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(lblFuncionario)
-                                            .addGap(54, 54, 54)
-                                            .addComponent(ComboFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(18, 18, 18)
-                                    .addComponent(RbEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addGap(0, 59, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
-                .addComponent(TxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(lblFuncionario))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ComboFuncionarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(RbEditar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabel2))
-                    .addComponent(TxtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel3))
-                    .addComponent(TxtRG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMes)
-                    .addComponent(ComboMesInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblMes1)
-                        .addComponent(ComboMesFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ComboAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblAno)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(lblHoras))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(TxtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(LblTotal)
-                        .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(JbtnSalvar)
-                        .addComponent(JbtnLimpar))
-                    .addComponent(JbExcluir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(78, Short.MAX_VALUE))
-        );
+        getContentPane().add(ComboMesFim);
+        ComboMesFim.setBounds(160, 343, 132, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -306,6 +234,9 @@ public class ConsultaDadosView extends javax.swing.JFrame {
     private void clearScreen() {
         if (ComboFuncionarios.isDisplayable()) {
             ComboFuncionarios.setSelectedIndex(-1);
+        }
+        if (ComboAno.isDisplayable()) {
+            ComboAno.setSelectedIndex(-1);
         }
 
         TxtCPF.setText("");
@@ -319,14 +250,9 @@ public class ConsultaDadosView extends javax.swing.JFrame {
         RbEditar.setSelected(false);
         JbtnSalvar.setEnabled(false);
         JbtnSalvar.setVisible(false);
+        this.invisibleScreenInit(false);
+        this.invisibleScreenEnd(false);
 
-    }
-
-    private void clearTotal() {
-        TxtHoras.setText("");
-        txtTotal.setText("");
-        ComboMesFim.setSelectedIndex(-1);
-        ComboAno.setSelectedIndex(-1);
     }
 
 
@@ -337,14 +263,11 @@ public class ConsultaDadosView extends javax.swing.JFrame {
         if (ComboFuncionarios.getSelectedIndex() < 0) {
             return;
         }
-        Funcionario funcionario = (Funcionario) ComboFuncionarios.getSelectedItem();
+        funcionario = (Funcionario) ComboFuncionarios.getSelectedItem();
         assert funcionario != null;
         TxtCPF.setText(funcionario.getCpf());
         TxtRG.setText(funcionario.getRg());
-        this.codFun = funcionario.getCod_funcionario();
         try {
-            utils.mesFuncionarioBy(ComboMesInicio, sbl, funcionario.getCod_funcionario());
-            utils.mesFuncionarioBy(ComboMesFim, sbl, funcionario.getCod_funcionario());
             utils.getAnoFuncionario(ComboAno, sbl, funcionario.getCod_funcionario(), " ano");
         } catch (SQLException ex) {
             Logger.getLogger(ConsultaDadosView.class.getName()).log(Level.SEVERE, null, ex);
@@ -354,6 +277,46 @@ public class ConsultaDadosView extends javax.swing.JFrame {
         JbtnLimpar.setEnabled(true);
         utils.visibleButtonTrue(RbEditar, TxtNome, funcionario.getNome_funcionario());
     }//GEN-LAST:event_ComboFuncionariosItemStateChanged
+
+    private void verifyMonths() {
+        if (ComboAno.getSelectedItem() == null) {
+            return;
+        } else {
+            try {
+
+                utils.mesFuncionarioBy(ComboMesInicio, sbl, funcionario.getCod_funcionario(), (int) ComboAno.getSelectedItem());
+                utils.mesFuncionarioBy(ComboMesFim, sbl, funcionario.getCod_funcionario(), (int) ComboAno.getSelectedItem());
+
+                if (ComboMesInicio.getItemCount() == 0
+                        || ComboMesInicio.getItemCount() == 1) {
+                    this.invisibleScreenInit(true);
+                    if (ComboMesInicio.isValid()) {
+                        this.horasTotais();
+                    }
+                } else {
+                    this.invisibleScreenInit(true);
+                    this.invisibleScreenEnd(true);
+
+                    utils.mesFuncionarioBy(ComboMesInicio, sbl, funcionario.getCod_funcionario(), (int) ComboAno.getSelectedItem());
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(ConsultaDadosView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+    }
+
+    private void invisibleScreenEnd(boolean status) {
+        lblMes1.setVisible(status);
+        ComboMesFim.setVisible(status);
+
+    }
+
+    private void invisibleScreenInit(boolean status) {
+        lblMes.setVisible(status);
+        ComboMesInicio.setVisible(status);
+
+    }
 
     private void JbtnSalvarMouseClicked(MouseEvent evt) {//GEN-FIRST:event_JbtnSalvarMouseClicked
         if (TxtNome.getText().isBlank() | TxtNome.getText().isEmpty()) {
@@ -383,7 +346,7 @@ public class ConsultaDadosView extends javax.swing.JFrame {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(FuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(main.java.View.FuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
 
         }
     }//GEN-LAST:event_JbtnSalvarMouseClicked
@@ -398,22 +361,29 @@ public class ConsultaDadosView extends javax.swing.JFrame {
             utils.atualizarFuncionario(ComboFuncionarios, sb);
 
         } catch (SQLException ex) {
-            Logger.getLogger(LancamentoView.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(main.java.View.LancamentoView.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.clearScreen();
     }//GEN-LAST:event_formWindowActivated
 
     private float totalAReceber(int value) throws SQLException {
-        return utils.verifyValueOfCombo(codFun) * value;
+        return utils.verifyValueOfCombo(funcionario.getCod_funcionario()) * value;
+    }
+
+    private int validateMonth() {
+        if (ComboMesFim.getSelectedIndex() > -1) {
+            return utils.reverseMonth(Objects.requireNonNull(ComboMesFim.getSelectedItem()).toString());
+        }
+        return utils.reverseMonth(Objects.requireNonNull(ComboMesInicio.getSelectedItem()).toString());
+
     }
 
     private void horasTotais() {
         int value;
         int firstMonth = utils.reverseMonth(Objects.requireNonNull(ComboMesInicio.getSelectedItem()).toString());
-        int lastMonth = utils.reverseMonth(Objects.requireNonNull(ComboMesFim.getSelectedItem()).toString());
         try {
-            value = utils.verifySumTime(Integer.parseInt(String.valueOf(firstMonth)),
-                    Integer.parseInt(String.valueOf(lastMonth)), codFun,
+            value = utils.verifySumTime(Integer.parseInt(String.valueOf(firstMonth)), this.validateMonth(),
+                    funcionario.getCod_funcionario(),
                     Integer.parseInt(Objects.requireNonNull(ComboAno.getSelectedItem()).toString()));
 
             txtTotal.setText("R$ " + utils.formatTot(this.totalAReceber(value)));
@@ -425,11 +395,12 @@ public class ConsultaDadosView extends javax.swing.JFrame {
 
     private void ComboAnoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboAnoItemStateChanged
         TxtHoras.setText("");
-        if (ComboMesInicio.getSelectedIndex() >= 0
-                && ComboMesFim.getSelectedIndex() >= 0
-                && ComboAno.getSelectedIndex() >= 0) {
-            this.horasTotais();
+        this.invisibleScreenInit(false);
+        this.invisibleScreenEnd(false);
+        if (ComboAno.isValid()) {
+            this.verifyMonths();
         }
+
     }//GEN-LAST:event_ComboAnoItemStateChanged
 
     private void RbEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RbEditarMouseClicked
@@ -476,8 +447,10 @@ public class ConsultaDadosView extends javax.swing.JFrame {
             return;
         }
         String lancamento = (String) ComboMesInicio.getSelectedItem();
-//        st.screenTable(utils.reverseMonth(Objects.requireNonNull(ComboMes.getSelectedItem()).toString()));
         assert lancamento != null;
+        if (ComboMesInicio.isValid()) {
+            this.horasTotais();
+        }
     }//GEN-LAST:event_ComboMesInicioItemStateChanged
 
     private void ComboMesFimItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ComboMesFimItemStateChanged
@@ -488,7 +461,9 @@ public class ConsultaDadosView extends javax.swing.JFrame {
             return;
         }
         String lancamento = (String) ComboMesFim.getSelectedItem();
-//        this.screenTable(utils.reverseMonth(Objects.requireNonNull(ComboMes.getSelectedItem()).toString()));
+        if (ComboMesFim.isValid()) {
+            this.horasTotais();
+        }
         assert lancamento != null;
     }//GEN-LAST:event_ComboMesFimItemStateChanged
 
