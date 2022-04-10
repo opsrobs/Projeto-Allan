@@ -78,19 +78,18 @@ public class ServicoBancoLancamento {
             while (rs.next()) {
                 value = rs.getString(3);
             }
-            System.out.println(value);
-
+            conexao.close();
         }
 
         return value;
     }
 
-    public ArrayList<String> getMesByFilter(int cod) throws SQLException {
+    public ArrayList<String> getMesByFilter(int cod, int mes) throws SQLException {
         ArrayList<String> dados = new ArrayList<>();
         Utils utils = new Utils();
         try ( Statement st = conexao.getConexao().createStatement();
-                ResultSet rs = st.executeQuery("SELECT * FROM controle_horas.getquerybyano WHERE cod_funcionaio = "+cod+" group by mes")) {
-
+                ResultSet rs = st.executeQuery("SELECT * FROM controle_horas.getquerybyano WHERE cod_funcionaio = "+cod+""
+                        + " and ano = "+mes+" group by mes")) {
             while (rs.next()) {
                 dados.add(utils.mes(rs.getString(5)));
             }
