@@ -54,13 +54,13 @@ public class Utils {
         j.setSelectedIndex(-1);
     }
 
-    public void mesFuncionarioBy(JComboBox<String> j, ServicoBancoLancamento sbl, int cod) throws SQLException {
+    public void mesFuncionarioBy(JComboBox<String> j, ServicoBancoLancamento sbl, int cod,int ano) throws SQLException {
         this.sbl = sbl;
         if (j.getItemCount() > 0) {
             j.removeAllItems();
         }
 
-        ArrayList<String> lista = sbl.getMesByFilter(cod);
+        ArrayList<String> lista = sbl.getMesByFilter(cod,ano);
 
         for (String mes : lista) {
             j.addItem(mes);
@@ -209,11 +209,7 @@ public class Utils {
     }
 
     public int verifySumTime(int periodoIni, int periodoFim, int cod, int ano) throws SQLException {
-        System.out.println(periodoIni);
-        System.out.println(periodoFim);
-        if (periodoIni > periodoFim) {
-            return sbl.getHorasByPeriodo(periodoIni, periodoIni, cod, ano);
-        } else if (periodoFim > periodoIni) {
+        if  (periodoFim > periodoIni) {
             return sbl.getHorasByPeriodo(periodoIni, periodoFim, cod, ano);
         } else {
             return sbl.getHorasByPeriodo(periodoIni, periodoIni, cod, ano);
