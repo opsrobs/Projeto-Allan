@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package View;
+package main.java.View;
 
 import Controller.ServicoBancoLancamento;
 import Controller.SimpleTableModel;
@@ -56,6 +56,11 @@ public class SearchByTable extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -86,7 +91,7 @@ public class SearchByTable extends javax.swing.JFrame {
         });
 
         BtnRefresh.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        BtnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/18-autorenew-outline.gif"))); // NOI18N
+//        BtnRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/18-autorenew-outline.gif"))); // NOI18N
         BtnRefresh.setBorder(null);
         BtnRefresh.setBorderPainted(false);
         BtnRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -121,11 +126,10 @@ public class SearchByTable extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ComboMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAno)))
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ComboMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblAno))
                     .addComponent(BtnRefresh))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -204,6 +208,10 @@ public class SearchByTable extends javax.swing.JFrame {
         }
         this.carregarTabela();
     }//GEN-LAST:event_formWindowActivated
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+//        this.screenTable();
+    }//GEN-LAST:event_formMouseClicked
 
     /**
      * @param args the command line arguments

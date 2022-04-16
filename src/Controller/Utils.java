@@ -2,6 +2,7 @@ package Controller;
 
 import Models.Funcionario;
 import Models.Lancamento;
+import java.awt.BorderLayout;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.text.ParseException;
@@ -10,8 +11,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.InputMismatchException;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class Utils {
 
@@ -54,13 +58,13 @@ public class Utils {
         j.setSelectedIndex(-1);
     }
 
-    public void mesFuncionarioBy(JComboBox<String> j, ServicoBancoLancamento sbl, int cod,int ano) throws SQLException {
+    public void mesFuncionarioBy(JComboBox<String> j, ServicoBancoLancamento sbl, int cod, int ano) throws SQLException {
         this.sbl = sbl;
         if (j.getItemCount() > 0) {
             j.removeAllItems();
         }
 
-        ArrayList<String> lista = sbl.getMesByFilter(cod,ano);
+        ArrayList<String> lista = sbl.getMesByFilter(cod, ano);
 
         for (String mes : lista) {
             j.addItem(mes);
@@ -125,7 +129,7 @@ public class Utils {
                 2;
             case "Março" ->
                 3;
-            case "Abri" ->
+            case "Abril" ->
                 4;
             case "Maio" ->
                 5;
@@ -209,7 +213,7 @@ public class Utils {
     }
 
     public int verifySumTime(int periodoIni, int periodoFim, int cod, int ano) throws SQLException {
-        if  (periodoFim > periodoIni) {
+        if (periodoFim > periodoIni) {
             return sbl.getHorasByPeriodo(periodoIni, periodoFim, cod, ano);
         } else {
             return sbl.getHorasByPeriodo(periodoIni, periodoIni, cod, ano);

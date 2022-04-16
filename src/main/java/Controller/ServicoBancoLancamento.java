@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import main.java.Models.ObjetoAuxiliar;
 
 public class ServicoBancoLancamento {
 
@@ -87,9 +88,8 @@ public class ServicoBancoLancamento {
     public ArrayList<String> getMesByFilter(int cod, int mes) throws SQLException {
         ArrayList<String> dados = new ArrayList<>();
         Utils utils = new Utils();
-        try ( Statement st = conexao.getConexao().createStatement();
-                ResultSet rs = st.executeQuery("SELECT * FROM controle_horas.getquerybyano WHERE cod_funcionaio = "+cod+""
-                        + " and ano = "+mes+" group by mes")) {
+        try ( Statement st = conexao.getConexao().createStatement();  ResultSet rs = st.executeQuery("SELECT * FROM controle_horas.getquerybyano WHERE cod_funcionaio = " + cod + ""
+                + " and ano = " + mes + " group by mes")) {
             while (rs.next()) {
                 dados.add(utils.mes(rs.getString(5)));
             }
@@ -190,6 +190,62 @@ public class ServicoBancoLancamento {
                     rs.getString(5),
                     utils.formatTot(Float.parseFloat(rs.getString(6))),
                     rs.getString(7)});
+            }
+        }
+        return dados;
+    }
+
+    public ArrayList<ObjetoAuxiliar> getDadosByFilter(String nome, int inicio, int fim, int ano) throws SQLException {
+        System.err.println(inicio + " || " + fim + " || " + ano + " |--------------| " + nome);
+
+        ArrayList<ObjetoAuxiliar> dados = new ArrayList<>();
+        try ( Statement st = conexao.getConexao().createStatement();  ResultSet rs = st.executeQuery("SELECT * FROM controle_horas.getquerybyano "
+                + "where nome_Funcionario = '" + nome + "' and mes between " + inicio + " and " + fim + " and ano = " + ano + ";")) {
+            System.out.println(rs.toString());
+            while (rs.next()) {
+                dados.add(new ObjetoAuxiliar(rs.getFloat("total_mes"),
+                        rs.getString("mes")));
+            }
+        }
+        return dados;
+    }
+
+    public ArrayList<ObjetoAuxiliar> filterByYear( int ano) throws SQLException {
+
+        ArrayList<ObjetoAuxiliar> dados = new ArrayList<>();
+        try ( Statement st = conexao.getConexao().createStatement();  ResultSet rs = st.executeQuery("SELECT * FROM controle_horas.getquerybyano "
+                + "where ano = " + ano + ";")) {
+            System.out.println(rs.toString());
+            while (rs.next()) {
+                dados.add(new ObjetoAuxiliar(rs.getFloat("total_mes"),
+                        rs.getString("mes")));
+            }
+        }
+        return dados;
+    }
+
+    public ArrayList<ObjetoAuxiliar> getDadosByFilterByPerson(String nome, int inicio, int period) throws SQLException {
+        System.err.println(inicio + " |--------------| " + nome);
+
+        ArrayList<ObjetoAuxiliar> dados = new ArrayList<>();
+        try ( Statement st = conexao.getConexao().createStatement();  ResultSet rs = st.executeQuery("SELECT * FROM controle_horas.getquerybyano "
+                + "where nome_Funcionario = '" + nome + "' and mes between " + inicio + " and " + period + ";")) {
+            System.out.println(rs.toString());
+            while (rs.next()) {
+                dados.add(new ObjetoAuxiliar(rs.getFloat("total_mes"),
+                        rs.getString("mes")));
+            }
+        }
+        return dados;
+    }
+
+    public ArrayList<ObjetoAuxiliar> getDadosByQuery() throws SQLException {
+        ArrayList<ObjetoAuxiliar> dados = new ArrayList<>();
+        try ( Statement st = conexao.getConexao().createStatement();  ResultSet rs = st.executeQuery("SELECT * FROM controle_horas.gettabelabyquery;")) {
+
+            while (rs.next()) {
+                dados.add(new ObjetoAuxiliar(rs.getFloat("total_mes"),
+                        rs.getString("mes")));
             }
         }
         return dados;
