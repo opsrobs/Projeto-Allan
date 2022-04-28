@@ -31,6 +31,7 @@ public class FuncionarioView extends javax.swing.JFrame {
     private final ImageIcon icon = new ImageIcon("C:\\Users\\PremierSoft\\Documents\\NetBeansProjects\\Projeto-Allan\\src\\images\\1140-error-outline.gif");
     private final ImageIcon defaultIcon = new ImageIcon("C:\\Users\\PremierSoft\\Documents\\NetBeansProjects\\Projeto-Allan\\src\\images\\55-error-outline.gif");
     LancamentoView lancamentoView;
+    FuncionarioView funcionarioView;
 
 //    SearchByTable searchByTable = new SearchByTable();
 //    FuncionarioView funcionarioView = new FuncionarioView();
@@ -46,7 +47,7 @@ public class FuncionarioView extends javax.swing.JFrame {
         setTitle("JFrameCenter Position");
         add(new JLabel("JFrame set to center of the screen", SwingConstants.CENTER), BorderLayout.CENTER);
         setSize(670, 530);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null); // this method display the JFrame to center position of a screen
         setVisible(true);
     }
@@ -141,8 +142,9 @@ public class FuncionarioView extends javax.swing.JFrame {
         LblStatus = new javax.swing.JLabel();
         TxtStatus = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        jMenuFuncionarios = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -203,7 +205,6 @@ public class FuncionarioView extends javax.swing.JFrame {
             }
         });
 
-
         LblData_Nasc.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         LblData_Nasc.setText("Data nascimento:");
 
@@ -217,9 +218,9 @@ public class FuncionarioView extends javax.swing.JFrame {
         LblStatus.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         LblStatus.setText("Status:");
 
-        jMenu1.setText("Menu de Sistemas");
+        jMenuFuncionarios.setText("Menu de Sistemas");
 
-        jMenuItem1.setText("Cadastro");
+        jMenuItem1.setText("Cadastro de Lançamentos.");
         jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenuItem1MouseClicked(evt);
@@ -230,9 +231,17 @@ public class FuncionarioView extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenuFuncionarios.add(jMenuItem1);
 
-        jMenuBar1.add(jMenu1);
+        jMenuItem2.setText("Cadastro de Funcionarios.");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenuFuncionarios.add(jMenuItem2);
+
+        jMenuBar1.add(jMenuFuncionarios);
 
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
@@ -436,6 +445,16 @@ public class FuncionarioView extends javax.swing.JFrame {
         this.cadastroLancamento();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void cadastroFuncionarios(){
+        if (funcionarioView == null) {
+            funcionarioView = new FuncionarioView();
+        }
+        funcionarioView.setVisible(true);
+    }
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     LancamentoView lancamentobtn = new LancamentoView();
 
     /**
@@ -483,10 +502,11 @@ public class FuncionarioView extends javax.swing.JFrame {
     private javax.swing.JTextField TxtStatus;
     private javax.swing.JTextField TxtValor;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenuFuncionarios;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JLabel requiredCpf;
     // End of variables declaration//GEN-END:variables
 
