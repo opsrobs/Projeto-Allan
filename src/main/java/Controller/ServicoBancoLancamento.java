@@ -85,6 +85,44 @@ public class ServicoBancoLancamento {
         return value;
     }
 
+    public ArrayList<Lancamento> dadosLancamento() throws SQLException {
+        ArrayList<Lancamento> lista = new ArrayList<>();
+        try ( Statement st = conexao.getConexao().createStatement();  ResultSet rs = st.executeQuery(
+                "select * from lancamento ")) {
+
+            while (rs.next()) {
+                lista.add(new Lancamento(rs.getInt("id_Controle"),
+                        rs.getInt("funcionario_cod_funcionaio"),
+                        rs.getFloat("hora_trabalhada"),
+                        rs.getInt("mes"),
+                        rs.getInt("ano")));
+            }
+            st.close();
+        }
+        
+        return lista;
+    }
+
+    public ArrayList<Funcionario> dadosFuncionario() throws SQLException {
+        ArrayList<Funcionario> lista = new ArrayList<>();
+        try ( Statement st = conexao.getConexao().createStatement();  ResultSet rs = st.executeQuery(
+                "select * from funcionario ")) {
+
+            while (rs.next()) {
+                lista.add(new Funcionario(rs.getString("nome_Funcionario"),
+                        rs.getString("CPF"),
+                        rs.getString("Rg"),
+                        rs.getString("genero"),
+                        rs.getFloat("valor_Hora"),
+                        rs.getDate("data_nasc"),
+                        rs.getString("status")));
+            }
+            st.close();
+        }
+
+        return lista;
+    }
+
     public ArrayList<String> getMesByFilter(int cod, int mes) throws SQLException {
         ArrayList<String> dados = new ArrayList<>();
         Utils utils = new Utils();
@@ -210,7 +248,7 @@ public class ServicoBancoLancamento {
         return dados;
     }
 
-    public ArrayList<ObjetoAuxiliar> filterByYear( int ano) throws SQLException {
+    public ArrayList<ObjetoAuxiliar> filterByYear(int ano) throws SQLException {
 
         ArrayList<ObjetoAuxiliar> dados = new ArrayList<>();
         try ( Statement st = conexao.getConexao().createStatement();  ResultSet rs = st.executeQuery("SELECT * FROM controle_horas.getquerybyano "

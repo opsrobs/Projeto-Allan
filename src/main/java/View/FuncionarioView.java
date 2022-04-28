@@ -30,7 +30,13 @@ public class FuncionarioView extends javax.swing.JFrame {
     ServicoBancoFuncionario sb = new ServicoBancoFuncionario();
     private final ImageIcon icon = new ImageIcon("C:\\Users\\PremierSoft\\Documents\\NetBeansProjects\\Projeto-Allan\\src\\images\\1140-error-outline.gif");
     private final ImageIcon defaultIcon = new ImageIcon("C:\\Users\\PremierSoft\\Documents\\NetBeansProjects\\Projeto-Allan\\src\\images\\55-error-outline.gif");
+    LancamentoView lancamentoView;
 
+//    SearchByTable searchByTable = new SearchByTable();
+//    FuncionarioView funcionarioView = new FuncionarioView();
+//    ConsultaDadosView consultaDados = new ConsultaDadosView();
+//    ConsultaDadosGraphicView consultaDadosGraphicView = new ConsultaDadosGraphicView();
+//    AnaliseDeCustosView analiseDeCustosView = new AnaliseDeCustosView();
     public FuncionarioView() {
         initComponents();
         this.JFrameCenterPositionTest();
@@ -45,6 +51,41 @@ public class FuncionarioView extends javax.swing.JFrame {
         setVisible(true);
     }
 
+//    private void openTable() {
+//        if (searchByTable == null) {
+//            searchByTable = new SearchByTable();
+//        }
+//        searchByTable.setVisible(true);
+//
+//    }
+//    private void openFuncionario(){
+//        if (funcionarioView == null) {
+//            funcionarioView = new FuncionarioView();
+//        }
+//        
+//        funcionarioView.setVisible(true);
+//    }
+//    
+//    private void openConsultaDados(){
+//        if (consultaDados == null) {
+//            consultaDados = new ConsultaDadosView();
+//        }
+//        consultaDados.setVisible(true);
+//    }
+//    
+//    private void openConsultaGrafico(){
+//        if (consultaDadosGraphicView == null) {
+//            consultaDadosGraphicView = new ConsultaDadosGraphicView();
+//        }
+//        consultaDadosGraphicView.setVisible(true);
+//    }
+//    
+//    private void openAnalsie(){
+//        if (analiseDeCustosView == null) {
+//            analiseDeCustosView = new AnaliseDeCustosView();
+//        }
+//        analiseDeCustosView.setVisible(true);
+//    }
     private void clearScreen() {
         TxtName.setText("");
         MaskCpf.setText("");
@@ -101,6 +142,7 @@ public class FuncionarioView extends javax.swing.JFrame {
         TxtStatus = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -176,6 +218,20 @@ public class FuncionarioView extends javax.swing.JFrame {
         LblStatus.setText("Status:");
 
         jMenu1.setText("Menu de Sistemas");
+
+        jMenuItem1.setText("Cadastro");
+        jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem1MouseClicked(evt);
+            }
+        });
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Edit");
@@ -361,6 +417,27 @@ public class FuncionarioView extends javax.swing.JFrame {
         this.verifyCpf();
     }//GEN-LAST:event_MaskCpfFocusLost
 
+    private void cadastroLancamento() {
+        if (lancamentoView == null) {
+            lancamentoView = new LancamentoView();
+        }
+        System.err.println(":p");
+        lancamentoView.setVisible(true);
+    }
+
+    private void jMenuItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MouseClicked
+        System.err.println("1");
+        this.cadastroLancamento();
+    }//GEN-LAST:event_jMenuItem1MouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        System.err.println("2");
+
+        this.cadastroLancamento();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    LancamentoView lancamentobtn = new LancamentoView();
+
     /**
      * @param args the command line arguments
      */
@@ -409,6 +486,7 @@ public class FuncionarioView extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel requiredCpf;
     // End of variables declaration//GEN-END:variables
 

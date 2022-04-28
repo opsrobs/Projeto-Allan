@@ -29,7 +29,6 @@ public class ConsultaDadosView extends javax.swing.JFrame {
     ServicoBancoFuncionario sb = new ServicoBancoFuncionario();
     ServicoBancoLancamento sbl = new ServicoBancoLancamento();
     Funcionario funcionario = new Funcionario();
-    private int codFun = 0;
     Utils utils = new Utils();
 
     public void JFrameCenterPositionTest() {
@@ -381,6 +380,7 @@ public class ConsultaDadosView extends javax.swing.JFrame {
     private void horasTotais() {
         int value;
         int firstMonth = utils.reverseMonth(Objects.requireNonNull(ComboMesInicio.getSelectedItem()).toString());
+        System.err.println(firstMonth);
         try {
             value = utils.verifySumTime(Integer.parseInt(String.valueOf(firstMonth)), this.validateMonth(),
                     funcionario.getCod_funcionario(),

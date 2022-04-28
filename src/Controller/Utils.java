@@ -16,11 +16,13 @@ import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import main.java.View.SearchByTable;
 
 public class Utils {
 
     private final SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
     private final SimpleDateFormat dh = new SimpleDateFormat("hh:mm:ss");
+//    private SearchByTable searchByTable = new SearchByTable();
     ServicoBancoFuncionario servicoBancoFuncionario = new ServicoBancoFuncionario();
     ServicoBancoLancamento sbl = new ServicoBancoLancamento();
 
@@ -86,6 +88,13 @@ public class Utils {
         j.setSelectedIndex(-1);
     }
 
+    public String removeEpecialChar(JTextField especialChar){
+        if (especialChar.getText().contains("%")) {
+            return especialChar.getText().replace("%","");
+        }else
+        return especialChar.getText().replace("[^\\d]","");
+    }
+    
     public String mes(String numMes) {
         String value;
         value = numMes.replace("0", "");
@@ -97,7 +106,7 @@ public class Utils {
             case "3" ->
                 "Março";
             case "4" ->
-                "Abri";
+                "Abril";
             case "5" ->
                 "Maio";
             case "6" ->
@@ -183,6 +192,24 @@ public class Utils {
         }
         j.setSelectedIndex(-1);
     }
+
+    public ArrayList<Lancamento> dadosLancamentos(ServicoBancoLancamento sbl) throws SQLException {
+        this.sbl = sbl;
+
+        ArrayList<Lancamento> lista = sbl.dadosLancamento();
+        return lista;
+    }
+
+    public ArrayList<Funcionario> dadosFuncionario(ServicoBancoLancamento sbl) throws SQLException {
+        this.sbl = sbl;
+
+        ArrayList<Funcionario> lista = sbl.dadosFuncionario();
+        return lista;
+    }
+    
+
+    
+//    public void 
 
     public Date strToDate(String data) throws ParseException {
         return df.parse(data);
