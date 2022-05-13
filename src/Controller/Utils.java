@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.InputMismatchException;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -31,6 +32,28 @@ public class Utils {
             name.setVisible(true);
             name.setText(func);
         }
+    }
+
+    public boolean verifyContentForButton(JTextField a, JTextField b, JTextField c, JTextField d, JTextField e, JTextField f, JTextField g) {
+        if (a.getText().isEmpty()
+                && b.getText().isEmpty()
+                && c.getText().isEmpty()
+                && d.getText().isEmpty()
+                && e.getText().isEmpty()
+                && f.getText().isEmpty()
+                && g.getText().isEmpty()) {
+            return false;
+
+        } else if (a.getText().isBlank()
+                && b.getText().isBlank()
+                && c.getText().isBlank()
+                && d.getText().isBlank()
+                && e.getText().isBlank()
+                && f.getText().isBlank()
+                && g.getText().isBlank()) {
+            return false;
+        }
+        return true;
     }
 
     public void atualizarFuncionario(JComboBox<Funcionario> j, ServicoBancoFuncionario sb) throws SQLException {
@@ -88,13 +111,14 @@ public class Utils {
         j.setSelectedIndex(-1);
     }
 
-    public String removeEpecialChar(JTextField especialChar){
+    public String removeEpecialChar(JTextField especialChar) {
         if (especialChar.getText().contains("%")) {
-            return especialChar.getText().replace("%","");
-        }else
-        return especialChar.getText().replace("[^\\d]","");
+            return especialChar.getText().replace("%", "");
+        } else {
+            return especialChar.getText().replace("[^\\d]", "");
+        }
     }
-    
+
     public String mes(String numMes) {
         String value;
         value = numMes.replace("0", "");
@@ -206,11 +230,8 @@ public class Utils {
         ArrayList<Funcionario> lista = sbl.dadosFuncionario();
         return lista;
     }
-    
 
-    
 //    public void 
-
     public Date strToDate(String data) throws ParseException {
         return df.parse(data);
     }

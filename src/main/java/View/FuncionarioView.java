@@ -28,16 +28,17 @@ public class FuncionarioView extends javax.swing.JFrame {
 
     Utils utils = new Utils();
     ServicoBancoFuncionario sb = new ServicoBancoFuncionario();
-    private final ImageIcon icon = new ImageIcon("C:\\Users\\PremierSoft\\Documents\\NetBeansProjects\\Projeto-Allan\\src\\images\\1140-error-outline.gif");
-    private final ImageIcon defaultIcon = new ImageIcon("C:\\Users\\PremierSoft\\Documents\\NetBeansProjects\\Projeto-Allan\\src\\images\\55-error-outline.gif");
+//    private final ImageIcon icon = new ImageIcon("C:\\Users\\PremierSoft\\Documents\\NetBeansProjects\\Projeto-Allan\\src\\images\\1140-error-outline.gif");
+//    private final ImageIcon defaultIcon = new ImageIcon("C:\\Users\\PremierSoft\\Documents\\NetBeansProjects\\Projeto-Allan\\src\\images\\55-error-outline.gif");
     LancamentoView lancamentoView;
     FuncionarioView funcionarioView;
 
-//    SearchByTable searchByTable = new SearchByTable();
+    SearchByTable searchByTable;
 //    FuncionarioView funcionarioView = new FuncionarioView();
-//    ConsultaDadosView consultaDados = new ConsultaDadosView();
-//    ConsultaDadosGraphicView consultaDadosGraphicView = new ConsultaDadosGraphicView();
-//    AnaliseDeCustosView analiseDeCustosView = new AnaliseDeCustosView();
+    ConsultaDadosView consultaDados;
+    ConsultaDadosGraphicView consultaDadosGraphicView;
+    AnaliseDeCustosView analiseDeCustosView;
+
     public FuncionarioView() {
         initComponents();
         this.JFrameCenterPositionTest();
@@ -52,41 +53,35 @@ public class FuncionarioView extends javax.swing.JFrame {
         setVisible(true);
     }
 
-//    private void openTable() {
-//        if (searchByTable == null) {
-//            searchByTable = new SearchByTable();
-//        }
-//        searchByTable.setVisible(true);
-//
-//    }
-//    private void openFuncionario(){
-//        if (funcionarioView == null) {
-//            funcionarioView = new FuncionarioView();
-//        }
-//        
-//        funcionarioView.setVisible(true);
-//    }
-//    
-//    private void openConsultaDados(){
-//        if (consultaDados == null) {
-//            consultaDados = new ConsultaDadosView();
-//        }
-//        consultaDados.setVisible(true);
-//    }
-//    
-//    private void openConsultaGrafico(){
-//        if (consultaDadosGraphicView == null) {
-//            consultaDadosGraphicView = new ConsultaDadosGraphicView();
-//        }
-//        consultaDadosGraphicView.setVisible(true);
-//    }
-//    
-//    private void openAnalsie(){
-//        if (analiseDeCustosView == null) {
-//            analiseDeCustosView = new AnaliseDeCustosView();
-//        }
-//        analiseDeCustosView.setVisible(true);
-//    }
+    private void openTable() {
+        if (searchByTable == null) {
+            searchByTable = new SearchByTable();
+        }
+        searchByTable.setVisible(true);
+
+    }
+
+    private void openConsultaDados() {
+        if (consultaDados == null) {
+            consultaDados = new ConsultaDadosView();
+        }
+        consultaDados.setVisible(true);
+    }
+
+    private void openConsultaGrafico() {
+        if (consultaDadosGraphicView == null) {
+            consultaDadosGraphicView = new ConsultaDadosGraphicView();
+        }
+        consultaDadosGraphicView.setVisible(true);
+    }
+
+    private void openAnalsie() {
+        if (analiseDeCustosView == null) {
+            analiseDeCustosView = new AnaliseDeCustosView();
+        }
+        analiseDeCustosView.setVisible(true);
+    }
+
     private void clearScreen() {
         TxtName.setText("");
         MaskCpf.setText("");
@@ -95,7 +90,7 @@ public class FuncionarioView extends javax.swing.JFrame {
         TxtValor.setText("");
         TxtStatus.setText("");
         MaskData.setText("");
-        requiredCpf.setIcon(defaultIcon);
+//        requiredCpf.setIcon(defaultIcon);
 
         JbtnLimpar.setEnabled(false);
         JbtnSalvar.setEnabled(false);
@@ -113,7 +108,7 @@ public class FuncionarioView extends javax.swing.JFrame {
         if (utils.verificaCpf(MaskCpf.getText())) {
             requiredCpf.setVisible(false);
         } else {
-            requiredCpf.setIcon(icon);
+//            requiredCpf.setIcon(icon);
             this.colorMask();
             return;
         }
@@ -123,6 +118,7 @@ public class FuncionarioView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem3 = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         LblName = new javax.swing.JLabel();
         LblCpf = new javax.swing.JLabel();
@@ -145,7 +141,13 @@ public class FuncionarioView extends javax.swing.JFrame {
         jMenuFuncionarios = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        MenuConsultas = new javax.swing.JMenu();
+        MenuConsultaFuncionario = new javax.swing.JMenuItem();
+        MenuGraficos = new javax.swing.JMenuItem();
+        MenuTabela = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+
+        jMenuItem3.setText("jMenuItem3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -205,6 +207,7 @@ public class FuncionarioView extends javax.swing.JFrame {
             }
         });
 
+
         LblData_Nasc.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         LblData_Nasc.setText("Data nascimento:");
 
@@ -218,7 +221,7 @@ public class FuncionarioView extends javax.swing.JFrame {
         LblStatus.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         LblStatus.setText("Status:");
 
-        jMenuFuncionarios.setText("Menu de Sistemas");
+        jMenuFuncionarios.setText("Cadastros.");
 
         jMenuItem1.setText("Cadastro de Lançamentos.");
         jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -243,8 +246,41 @@ public class FuncionarioView extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenuFuncionarios);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        MenuConsultas.setText("Consultas.");
+
+        MenuConsultaFuncionario.setText("Consulta Funcionario");
+        MenuConsultaFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuConsultaFuncionarioActionPerformed(evt);
+            }
+        });
+        MenuConsultas.add(MenuConsultaFuncionario);
+
+        MenuGraficos.setText("Graficos");
+        MenuGraficos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuGraficosActionPerformed(evt);
+            }
+        });
+        MenuConsultas.add(MenuGraficos);
+
+        MenuTabela.setText("Tabela de funcionarios");
+        MenuTabela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuTabelaActionPerformed(evt);
+            }
+        });
+        MenuConsultas.add(MenuTabela);
+
+        jMenuItem4.setText("MenuAnalise");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        MenuConsultas.add(jMenuItem4);
+
+        jMenuBar1.add(MenuConsultas);
 
         setJMenuBar(jMenuBar1);
 
@@ -435,8 +471,7 @@ public class FuncionarioView extends javax.swing.JFrame {
     }
 
     private void jMenuItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MouseClicked
-        System.err.println("1");
-        this.cadastroLancamento();
+
     }//GEN-LAST:event_jMenuItem1MouseClicked
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -445,17 +480,32 @@ public class FuncionarioView extends javax.swing.JFrame {
         this.cadastroLancamento();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void cadastroFuncionarios(){
+    private void cadastroFuncionarios() {
         if (funcionarioView == null) {
             funcionarioView = new FuncionarioView();
         }
         funcionarioView.setVisible(true);
     }
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+        System.err.println("1");
+        this.cadastroLancamento();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    LancamentoView lancamentobtn = new LancamentoView();
+    private void MenuConsultaFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuConsultaFuncionarioActionPerformed
+        this.openConsultaDados();
+    }//GEN-LAST:event_MenuConsultaFuncionarioActionPerformed
+
+    private void MenuGraficosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuGraficosActionPerformed
+        this.openConsultaGrafico();
+    }//GEN-LAST:event_MenuGraficosActionPerformed
+
+    private void MenuTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuTabelaActionPerformed
+        this.openTable();
+    }//GEN-LAST:event_MenuTabelaActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        this.openAnalsie();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -496,17 +546,22 @@ public class FuncionarioView extends javax.swing.JFrame {
     private javax.swing.JLabel LblValor;
     private javax.swing.JFormattedTextField MaskCpf;
     private javax.swing.JFormattedTextField MaskData;
+    private javax.swing.JMenuItem MenuConsultaFuncionario;
+    private javax.swing.JMenu MenuConsultas;
+    private javax.swing.JMenuItem MenuGraficos;
+    private javax.swing.JMenuItem MenuTabela;
     private javax.swing.JTextField TxtGener;
     private javax.swing.JTextField TxtName;
     private javax.swing.JTextField TxtRg;
     private javax.swing.JTextField TxtStatus;
     private javax.swing.JTextField TxtValor;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuFuncionarios;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JLabel requiredCpf;
     // End of variables declaration//GEN-END:variables
 

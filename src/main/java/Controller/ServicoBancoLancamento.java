@@ -263,7 +263,6 @@ public class ServicoBancoLancamento {
     }
 
     public ArrayList<ObjetoAuxiliar> getDadosByFilterByPerson(String nome, int inicio, int period) throws SQLException {
-        System.err.println(inicio + " |--------------| " + nome);
 
         ArrayList<ObjetoAuxiliar> dados = new ArrayList<>();
         try ( Statement st = conexao.getConexao().createStatement();  ResultSet rs = st.executeQuery("SELECT * FROM controle_horas.getquerybyano "
@@ -279,7 +278,7 @@ public class ServicoBancoLancamento {
 
     public ArrayList<ObjetoAuxiliar> getDadosByQuery() throws SQLException {
         ArrayList<ObjetoAuxiliar> dados = new ArrayList<>();
-        try ( Statement st = conexao.getConexao().createStatement();  ResultSet rs = st.executeQuery("SELECT * FROM controle_horas.gettabelabyquery;")) {
+        try ( Statement st = conexao.getConexao().createStatement();  ResultSet rs = st.executeQuery("SELECT * FROM controle_horas.gettabelabyhorasomada;")) {
 
             while (rs.next()) {
                 dados.add(new ObjetoAuxiliar(rs.getFloat("total_mes"),

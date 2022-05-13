@@ -34,8 +34,8 @@ public class ConsultaDadosView extends javax.swing.JFrame {
     public void JFrameCenterPositionTest() {
         setTitle("Consultar Funcionarios!!!");
         add(new JLabel("JFrame set to center of the screen", SwingConstants.CENTER), BorderLayout.CENTER);
-        setSize(580, 600);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(670, 530);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null); // this method display the JFrame to center position of a screen
         setVisible(true);
     }
