@@ -30,7 +30,7 @@ public class ServicoBancoFuncionario {
             pst.setString(3, funcionario.getRg());
             pst.setString(4, funcionario.getGenero());
             pst.setDouble(5, funcionario.getValor_hora());
-            pst.setDate(6, new java.sql.Date(funcionario.getData_nasc().getTime()));
+            pst.setString(6, funcionario.getData_nasc());
             pst.setString(7, funcionario.getStatus());
 
             //usar sempre pra inserir ou modificar dado na tabela
@@ -74,7 +74,7 @@ public class ServicoBancoFuncionario {
                     rs.getString("Rg"),
                     rs.getString("genero"),
                     rs.getDouble("valor_Hora"),
-                    rs.getDate("data_nasc"),
+                    rs.getString("data_nasc"),
                     rs.getString("status"));
         }
     }
@@ -90,7 +90,7 @@ public class ServicoBancoFuncionario {
                         rs.getString("Rg"),
                         rs.getString("genero"),
                         rs.getDouble("valor_Hora"),
-                        rs.getDate("data_nasc"),
+                        rs.getString("data_nasc"),
                         rs.getString("status")));
             }
         }

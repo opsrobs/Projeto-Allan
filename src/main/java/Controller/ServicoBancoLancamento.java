@@ -114,7 +114,7 @@ public class ServicoBancoLancamento {
                         rs.getString("Rg"),
                         rs.getString("genero"),
                         rs.getFloat("valor_Hora"),
-                        rs.getDate("data_nasc"),
+                        rs.getString("data_nasc"),
                         rs.getString("status")));
             }
             st.close();

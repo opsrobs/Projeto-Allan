@@ -9,17 +9,17 @@ public class Funcionario {
     String rg;
     String genero;
     double valor_hora;
-    Date data_nasc;
+    String data_nasc;
 
     public Funcionario(String nome_funcionario) {
         this.nome_funcionario = nome_funcionario;
     }
 
-    public Date getData_nasc() {
+    public String getData_nasc() {
         return data_nasc;
     }
 
-    public void setData_nasc(Date data_nasc) {
+    public void setData_nasc(String data_nasc) {
         this.data_nasc = data_nasc;
     }
 
@@ -32,7 +32,7 @@ public class Funcionario {
     }
     String status;
 
-    public Funcionario(int cod_funcionario, String nome_funcionario, String cpf, String rg, String genero, double valor_hora, Date data_nasc, String status) {
+    public Funcionario(int cod_funcionario, String nome_funcionario, String cpf, String rg, String genero, double valor_hora, String data_nasc, String status) {
         this.cod_funcionario = cod_funcionario;
         this.nome_funcionario = nome_funcionario;
         this.cpf = cpf;
@@ -43,7 +43,7 @@ public class Funcionario {
         this.status = status;
     }
 
-    public Funcionario(String nome_funcionario, String cpf, String rg, String genero, double valor_hora, Date data_nasc, String status) {
+    public Funcionario(String nome_funcionario, String cpf, String rg, String genero, double valor_hora, String data_nasc, String status) {
         this.nome_funcionario = nome_funcionario;
         this.cpf = cpf;
         this.rg = rg;

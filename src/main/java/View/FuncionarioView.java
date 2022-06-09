@@ -32,6 +32,7 @@ public class FuncionarioView extends javax.swing.JFrame {
 //    private final ImageIcon defaultIcon = new ImageIcon("C:\\Users\\PremierSoft\\Documents\\NetBeansProjects\\Projeto-Allan\\src\\images\\55-error-outline.gif");
     LancamentoView lancamentoView;
     FuncionarioView funcionarioView;
+    EnderecoView enderecoView;
 
     SearchByTable searchByTable;
 //    FuncionarioView funcionarioView = new FuncionarioView();
@@ -81,6 +82,7 @@ public class FuncionarioView extends javax.swing.JFrame {
         }
         analiseDeCustosView.setVisible(true);
     }
+    
 
     private void clearScreen() {
         TxtName.setText("");
@@ -253,6 +255,11 @@ public class FuncionarioView extends javax.swing.JFrame {
         jMenuFuncionarios.add(jMenuItem2);
 
         jMenuItem5.setText("Cadastro de Endereço");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenuFuncionarios.add(jMenuItem5);
 
         jMenuBar1.add(jMenuFuncionarios);
@@ -468,14 +475,14 @@ public class FuncionarioView extends javax.swing.JFrame {
             Funcionario funcionario = new Funcionario(TxtName.getText(),
                     MaskCpf.getText(), TxtRg.getText(),
                     TxtGener.getText(), Float.parseFloat(TxtValor.getText()),
-                    utils.strToDate(MaskData.getText()), TxtStatus.getText());
+                    MaskData.getText(), TxtStatus.getText());
             sb.insert(funcionario);
             JOptionPane.showMessageDialog(
                     null, "Cadastrado com sucesso",
                     "Cadastro!!!", JOptionPane.INFORMATION_MESSAGE,
                     new ImageIcon("C:\\Users\\PremierSoft\\IdeaProjects\\Campeonatos_Futebol\\src\\View\\Cadastro.gif"));
             this.clearScreen();
-        } catch (SQLException | ParseException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(FuncionarioView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_JbtnSalvarMouseClicked
@@ -531,6 +538,15 @@ public class FuncionarioView extends javax.swing.JFrame {
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         this.openAnalsie();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        if (enderecoView == null) {
+            enderecoView = new EnderecoView();
+        }
+        enderecoView.setVisible(true);
+        JOptionPane.showMessageDialog(null,"<<>>");
+    
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -26,6 +26,8 @@ public class Utils {
 //    private SearchByTable searchByTable = new SearchByTable();
     ServicoBancoFuncionario servicoBancoFuncionario = new ServicoBancoFuncionario();
     ServicoBancoLancamento sbl = new ServicoBancoLancamento();
+    
+    
 
     public void visibleButtonTrue(JRadioButton edit, JTextField name, String func) {
         if (edit.isSelected()) {

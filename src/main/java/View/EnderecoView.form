@@ -48,13 +48,17 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="TxtName" min="-2" pref="159" max="-2" attributes="0"/>
-                  <Component id="TxtGener" min="-2" pref="159" max="-2" attributes="0"/>
-                  <Component id="TxtStatus1" min="-2" pref="159" max="-2" attributes="0"/>
-                  <Component id="TxtGener1" min="-2" pref="159" max="-2" attributes="0"/>
-                  <Component id="TxtStatus" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="TxtCep" min="-2" pref="159" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="TxtBairro" min="-2" pref="159" max="-2" attributes="0"/>
+                  <Component id="TxtCidade" min="-2" pref="159" max="-2" attributes="0"/>
+                  <Component id="TxtRua" min="-2" pref="159" max="-2" attributes="0"/>
+                  <Component id="TxtEstado" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="TxtGener2" min="-2" pref="83" max="-2" attributes="0"/>
+                      <Component id="TxtNumero" min="-2" pref="83" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Component id="LblGenero2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -64,29 +68,22 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="TxtGener3" min="-2" pref="159" max="-2" attributes="0"/>
+                          <Component id="TxtComplmento" min="-2" pref="159" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="63" max="32767" attributes="0"/>
+              <EmptySpace pref="79" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="LblData_Nasc" min="-2" pref="150" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="419" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="LblGenero" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="LblCpf" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="LblGenero1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="507" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="LblGenero" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="LblCpf" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="LblGenero1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="LblData_Nasc" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace min="-2" pref="498" max="-2" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -96,25 +93,26 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="TxtName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="TxtCep" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="LblName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="TxtStatus" min="-2" max="-2" attributes="0"/>
+              <Component id="TxtEstado" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="TxtStatus1" min="-2" max="-2" attributes="0"/>
+              <Component id="TxtCidade" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="TxtGener" min="-2" max="-2" attributes="0"/>
+              <Component id="TxtBairro" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="TxtGener1" min="-2" max="-2" attributes="0"/>
+              <Component id="TxtRua" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="TxtGener2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="TxtNumero" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="LblGenero3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="LblGenero2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="TxtGener3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="TxtComplmento" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="40" max="32767" attributes="0"/>
+              <EmptySpace pref="48" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -146,7 +144,7 @@
         <Property name="text" type="java.lang.String" value="CEP:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtName">
+    <Component class="javax.swing.JTextField" name="TxtCep">
     </Component>
     <Component class="javax.swing.JLabel" name="LblData_Nasc">
       <Properties>
@@ -156,10 +154,7 @@
         <Property name="text" type="java.lang.String" value="Estado:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtStatus">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtStatusActionPerformed"/>
-      </Events>
+    <Component class="javax.swing.JTextField" name="TxtEstado">
     </Component>
     <Component class="javax.swing.JLabel" name="LblCpf">
       <Properties>
@@ -177,12 +172,9 @@
         <Property name="text" type="java.lang.String" value="Bairro:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtGener">
+    <Component class="javax.swing.JTextField" name="TxtBairro">
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtStatus1">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TxtStatus1ActionPerformed"/>
-      </Events>
+    <Component class="javax.swing.JTextField" name="TxtCidade">
     </Component>
     <Component class="javax.swing.JLabel" name="LblGenero1">
       <Properties>
@@ -208,11 +200,11 @@
         <Property name="text" type="java.lang.String" value="N&#xfa;mero:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtGener1">
+    <Component class="javax.swing.JTextField" name="TxtRua">
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtGener2">
+    <Component class="javax.swing.JTextField" name="TxtNumero">
     </Component>
-    <Component class="javax.swing.JTextField" name="TxtGener3">
+    <Component class="javax.swing.JTextField" name="TxtComplmento">
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
@@ -223,6 +215,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton2MouseClicked"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jButton3"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton3MouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
